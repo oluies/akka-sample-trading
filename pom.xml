@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.samples</groupId>
+	<artifactId>akka-sample-trading</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>Scala Akka Trading Sample</name>
+	<packaging>jar</packaging>
+	<properties>
+		<scala.version>2.8.0</scala.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<args>
+						<arg>-target:jvm-1.5</arg>
+					</args>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>ISO-8859-1</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<forkMode>once</forkMode>
+					<argLine>-Xms32m -Xmx1024m</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<!--
+						buildOutputDirectory doesn't work due to
+						http://jira.codehaus.org/browse/MECLIPSE-422 An workaround is the
+						outputDirectory at project/build level
+						<buildOutputDirectory>war/WEB-INF/classes</buildOutputDirectory>
+					-->
+					<testOutputDirectory>target/test-classes</testOutputDirectory>
+					<classpathContainers>
+						<classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
+					</classpathContainers>
+					<buildcommands>
+						<buildcommand>ch.epfl.lamp.sdt.core.scalabuilder</buildcommand>
+					</buildcommands>
+					<additionalProjectnatures>
+						<buildcommand>ch.epfl.lamp.sdt.core.scalabuilder</buildcommand>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+					</additionalProjectnatures>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<dependencies>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.6</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-tools.testing</groupId>
+			<artifactId>specs</artifactId>
+			<version>1.6.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<artifactId>akka-core_2.8.0.RC3</artifactId>
+		    <groupId>se.scalablesolutions.akka</groupId>
+		    <version>0.9.1</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.multiverse</groupId>
+    		<artifactId>multiverse-alpha</artifactId>
+    		<version>0.4</version>
+    	</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+		<repository>
+		  <id>Akka</id>
+		  <name>Akka Maven2 Repository</name>
+		  <url>http://www.scalablesolutions.se/akka/repository/ </url>
+		</repository>
+		 
+		<repository>
+		  <id>Multiverse</id>
+		  <name>Multiverse Maven2 Repository</name>
+		  <url>http://multiverse.googlecode.com/svn/maven-repository/releases/</url>
+		</repository>
+		 
+		<repository>
+		  <id>GuiceyFruit</id>
+		  <name>GuiceyFruit Maven2 Repository</name>
+		  <url>http://guiceyfruit.googlecode.com/svn/repo/releases/ </url>
+		</repository>
+		 
+		<repository>
+		  <id>JBoss</id>
+		  <name>JBoss Maven2 Repository</name>
+		  <url>https://repository.jboss.org/nexus/content/groups/public/ </url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-Tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>	
