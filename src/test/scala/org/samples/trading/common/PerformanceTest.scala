@@ -3,6 +3,8 @@ package org.samples.trading.common
 import java.util.Random
 import org.junit._
 import Assert._
+import org.apache.commons.math.stat.descriptive.DescriptiveStatistics
+import org.apache.commons.math.stat.descriptive.SynchronizedDescriptiveStatistics
 
 import org.samples.trading.domain._
 
@@ -13,7 +15,8 @@ trait PerformanceTest {
 
   // Use longRun = 30 for benchmark
   val longRun = 1
-
+  
+  var stat: DescriptiveStatistics = _
 
   type TS <: TradingSystem
   // TODO is it possible to define tyep OR as type of TradingSystem?
@@ -31,10 +34,12 @@ trait PerformanceTest {
 
   @Before
   def setUp {
+    stat = new SynchronizedDescriptiveStatistics
     tradingSystem = createTradingSystem
     tradingSystem.start
     warmUp
     TotalTradeCounter.reset
+    stat = new SynchronizedDescriptiveStatistics
   }
 
   @After
@@ -164,24 +169,22 @@ trait PerformanceTest {
     runScenario("oneSlowClient", orders, repeat, numberOfClients, 5)
   }
 
-  def logMeasurement(scenario: String, numberOfClients: Int, durationNs: Long, repeat: Int, totalNumberOfRequests: Int, averageRspTimeNs: Long, maxRspTimeNs: Long) {
+  def logMeasurement(scenario: String, numberOfClients: Int, durationNs: Long, repeat: Int, totalNumberOfRequests: Int) {
     val durationUs = durationNs / 1000
     val durationMs = durationNs / 1000000
     val durationS = durationNs.toDouble / 1000000000.0
-    println("# " + getClass.getSimpleName + "." + scenario + "[" + totalNumberOfRequests + "]: "
+    println("## " + getClass.getSimpleName + "." + scenario + "[" + stat.getN + "]: "
         + numberOfClients + " clients, "
         + durationMs + " ms, "
-        + (averageRspTimeNs / 1000) + " us/order, "
-        + (totalNumberOfRequests.toDouble / durationS).formatted("%.0f") + " TPS, "
-        + "max " + (maxRspTimeNs / 1000000) + " ms")
+        + (stat.getMean / 1000).formatted("%.0f") + " us/order, "
+        + (stat.getN.toDouble / durationS).formatted("%.0f") + " TPS, "
+        + "5% " + (stat.getPercentile(5.0) / 1000).formatted("%.0f") + " us, "
+        + "25% " + (stat.getPercentile(25.0) / 1000).formatted("%.0f") + " us, "
+        + "50% " + (stat.getPercentile(50.0) / 1000).formatted("%.0f") + " us, "
+        + "75% " + (stat.getPercentile(75.0) / 1000).formatted("%.0f") + " us, "
+        + "95% " + (stat.getPercentile(95.0) / 1000).formatted("%.0f") + " us"
+        )
   }
-
-  case class Metrics(
-      var numberOfRequests: Long,
-      var totalRspTimeNs: Long,
-      var maxRspTimeNs: Long)
-
-
 
   def delay(delayMs: Int) {
     val adjustedDelay =

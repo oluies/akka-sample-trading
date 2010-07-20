@@ -50,35 +50,11 @@ class AkkaPerformanceTest extends PerformanceTest {
 
     assertTrue(ok)
     assertEquals(numberOfClients * (orders.size / 2) * repeat, TotalTradeCounter.counter.get)
-    logMeasurement(scenario, numberOfClients, durationNs, repeat, totalNumberOfRequests, averageRspTimeNs(clients), maxRspTimeNs(clients))
+    logMeasurement(scenario, numberOfClients, durationNs, repeat, totalNumberOfRequests)
     clients.foreach(_.stop)
   }
 
-  private def averageRspTimeNs(clients: List[ActorRef]) = {
-    var totalDuration = 0L
-    var totalNumberOfRequests = 0L
-    for (each <- clients) {
-      val rsp: Option[Metrics] = each !! "metrics"
-      rsp.foreach(totalDuration += _.totalRspTimeNs)
-      rsp.foreach(totalNumberOfRequests += _.numberOfRequests)
-    }
-    totalDuration / totalNumberOfRequests
-  }
-
-  private def maxRspTimeNs(clients: List[ActorRef]) = {
-    var max = 0L
-    for (each <- clients) {
-      val rsp: Option[Metrics] = each !! "metrics"
-      if (rsp != None) {
-        if (rsp.get.maxRspTimeNs > max) max = rsp.get.maxRspTimeNs
-      }
-    }
-    max
-  }
-
   class Client(orderReceiver: ActorRef, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Actor {
-    val numberOfRequests = orders.size * repeat
-    val metrics = new Metrics(numberOfRequests, 0, 0);
 
     self.dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
 
@@ -88,7 +64,6 @@ class AkkaPerformanceTest extends PerformanceTest {
     }
 
     def receive = {
-      case "metrics" => reply(metrics)
       case "run" =>
         (1 to repeat).foreach(i =>
           {
@@ -97,11 +72,10 @@ class AkkaPerformanceTest extends PerformanceTest {
               val t0 = System.nanoTime
               val rsp = placeOrder(orderReceiver, o)
               val duration = System.nanoTime - t0
-              metrics.totalRspTimeNs += duration
+              stat.addValue(duration)
               if (!rsp.status) {
                 throw new IllegalStateException("Invalid rsp")
               }
-              if (duration > metrics.maxRspTimeNs) metrics.maxRspTimeNs = duration
               delay(delayMs)
             }
           }
