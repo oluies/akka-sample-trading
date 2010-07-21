@@ -15,6 +15,20 @@ class AkkaTradingSystem extends TradingSystem {
   type ME = ActorRef
   type OR = ActorRef
 
+  val orDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
+  orDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+   .setCorePoolSize(2)
+   .setMaxPoolSize(2)
+   .setKeepAliveTimeInMillis(60000)
+   .buildThreadPool
+   
+  val meDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
+  meDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+   .setCorePoolSize(20)
+   .setMaxPoolSize(20)
+   .setKeepAliveTimeInMillis(60000)
+   .buildThreadPool
+  
   var matchingEngineForOrderbook: Map[String, Option[ActorRef]] = Map()
 
   override def createMatchingEngines = {
@@ -24,11 +38,11 @@ class AkkaTradingSystem extends TradingSystem {
       for (orderbooks: List[Orderbook] <- orderbooksGroupedByMatchingEngine)
       yield {
         i = i + 1
-        val me = actorOf(new AkkaMatchingEngine("ME" + i, orderbooks))
+        val me = actorOf(new AkkaMatchingEngine("ME" + i, orderbooks, meDispatcher))
         val orderbooksCopy = orderbooks map (o => new Orderbook(o.symbol) with StandbyTradeObserver)
         val standbyOption =
           if (useStandByEngines) {
-            val meStandby = actorOf(new AkkaMatchingEngine("ME" + i + "s", orderbooksCopy))
+            val meStandby = actorOf(new AkkaMatchingEngine("ME" + i + "s", orderbooksCopy, meDispatcher))
             Some(meStandby)
           } else {
             None
@@ -42,7 +56,7 @@ class AkkaTradingSystem extends TradingSystem {
 
   override def createOrderReceivers: List[ActorRef] = {
     val primaryMatchingEngines = matchingEngines.map(pair => pair._1).toList
-    (1 to 10).toList map (i => actorOf(new AkkaOrderReceiver(primaryMatchingEngines)))
+    (1 to 10).toList map (i => actorOf(new AkkaOrderReceiver(primaryMatchingEngines, orDispatcher)))
   }
 
 

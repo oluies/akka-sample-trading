@@ -61,7 +61,6 @@ trait PerformanceTest {
 
 
   @Test
-  @Ignore
   def simpleScenario {
     val repeat = 300 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size
@@ -121,7 +120,6 @@ trait PerformanceTest {
   }
 
   @Test
-  @Ignore
   def manyOrderbooks {
     val repeat = 2 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size
@@ -135,7 +133,6 @@ trait PerformanceTest {
   }
 
   @Test
-  @Ignore
   def manyClients {
     val repeat = 1 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size * 10
@@ -149,7 +146,6 @@ trait PerformanceTest {
   }
 
   @Test
-  @Ignore
   def oneClient {
     val repeat = 10000 * longRun
     val numberOfClients = 1
@@ -162,7 +158,6 @@ trait PerformanceTest {
   }
 
   @Test
-  @Ignore
   def oneSlowClient {
     val repeat = 300 * longRun
     val numberOfClients = 1

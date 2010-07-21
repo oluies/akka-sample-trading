@@ -4,19 +4,14 @@ import org.samples.trading.common.OrderReceiver
 import se.scalablesolutions.akka.actor._
 import se.scalablesolutions.akka.actor.Actor._
 import se.scalablesolutions.akka.dispatch.Dispatchers
+import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 import org.samples.trading.domain._
 
-class AkkaOrderReceiver(val matchingEngines: List[ActorRef])
+class AkkaOrderReceiver(val matchingEngines: List[ActorRef], disp: MessageDispatcher)
     extends Actor with OrderReceiver {
   type ME = ActorRef
 
-  val disp = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
-  disp.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(1)
-   .setMaxPoolSize(1)
-   .setKeepAliveTimeInMillis(60000)
-   .buildThreadPool
   self.dispatcher = disp
 
   def receive = {

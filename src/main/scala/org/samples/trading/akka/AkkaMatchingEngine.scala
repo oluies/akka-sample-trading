@@ -5,6 +5,7 @@ import se.scalablesolutions.akka.actor.Actor._
 import se.scalablesolutions.akka.dispatch.Future
 import se.scalablesolutions.akka.dispatch.FutureTimeoutException
 import se.scalablesolutions.akka.dispatch.Dispatchers
+import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 import org.samples.trading.common.MatchingEngine
 import org.samples.trading.domain.Order
@@ -13,13 +14,7 @@ import org.samples.trading.domain.Rsp
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
-class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook]) extends Actor with MatchingEngine {
-  val disp = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
-  disp.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(2)
-   .setMaxPoolSize(2)
-   .setKeepAliveTimeInMillis(60000)
-   .buildThreadPool
+class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp: MessageDispatcher) extends Actor with MatchingEngine {
   self.dispatcher = disp
 
   var standby: Option[ActorRef] = None

@@ -17,6 +17,13 @@ import se.scalablesolutions.akka.dispatch.Dispatchers
 class AkkaPerformanceTest extends PerformanceTest {
   type TS = AkkaTradingSystem
   type OR = ActorRef
+  
+  val clientDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
+  clientDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+   .setCorePoolSize(10)
+   .setMaxPoolSize(10)
+   .setKeepAliveTimeInMillis(60000)
+   .buildThreadPool
 
   override def createTradingSystem: TS = new AkkaTradingSystem
 
@@ -56,14 +63,7 @@ class AkkaPerformanceTest extends PerformanceTest {
 
   class Client(orderReceiver: ActorRef, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Actor {
 
-    val disp = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
-    disp.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-     .setCorePoolSize(2)
-     .setMaxPoolSize(2)
-     .setKeepAliveTimeInMillis(60000)
-     .buildThreadPool
-    self.dispatcher = disp 
-
+    self.dispatcher = clientDispatcher
 
     def this(orderReceiver: ActorRef, orders: List[Order], latch: CountDownLatch, repeat: Int) {
       this (orderReceiver, orders, latch, repeat, 0)
