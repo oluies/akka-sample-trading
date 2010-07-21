@@ -14,7 +14,13 @@ import org.samples.trading.domain.SupportedOrderbooksReq
 
 
 class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook]) extends Actor with MatchingEngine {
-  self.dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
+  val disp = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
+  disp.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+   .setCorePoolSize(2)
+   .setMaxPoolSize(2)
+   .setKeepAliveTimeInMillis(60000)
+   .buildThreadPool
+  self.dispatcher = disp
 
   var standby: Option[ActorRef] = None
 

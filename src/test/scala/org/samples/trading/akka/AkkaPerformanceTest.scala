@@ -56,7 +56,13 @@ class AkkaPerformanceTest extends PerformanceTest {
 
   class Client(orderReceiver: ActorRef, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Actor {
 
-    self.dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
+    val disp = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
+    disp.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+     .setCorePoolSize(2)
+     .setMaxPoolSize(2)
+     .setKeepAliveTimeInMillis(60000)
+     .buildThreadPool
+    self.dispatcher = disp 
 
 
     def this(orderReceiver: ActorRef, orders: List[Order], latch: CountDownLatch, repeat: Int) {
@@ -67,7 +73,7 @@ class AkkaPerformanceTest extends PerformanceTest {
       case "run" =>
         (1 to repeat).foreach(i =>
           {
-            //						println("Client repeat: " + i)
+//            println("Client " + Thread.currentThread + " repeat: " + i)
             for (o <- orders) {
               val t0 = System.nanoTime
               val rsp = placeOrder(orderReceiver, o)

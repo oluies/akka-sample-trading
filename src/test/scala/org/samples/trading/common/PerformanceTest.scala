@@ -11,9 +11,9 @@ import org.samples.trading.domain._
 trait PerformanceTest {
 
   //	jvm parameters
-  //	-server -Xms256M -Xmx512M -XX:MaxGCPauseMillis=10
+  //	-server -Xms512M -Xmx1024M -XX:MaxGCPauseMillis=10
 
-  // Use longRun = 30 for benchmark
+  // Use longRun = 100 for benchmark
   val longRun = 1
   
   var stat: DescriptiveStatistics = _
@@ -61,6 +61,7 @@ trait PerformanceTest {
 
 
   @Test
+  @Ignore
   def simpleScenario {
     val repeat = 300 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size
@@ -120,6 +121,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def manyOrderbooks {
     val repeat = 2 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size
@@ -133,6 +135,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def manyClients {
     val repeat = 1 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size * 10
@@ -146,6 +149,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def oneClient {
     val repeat = 10000 * longRun
     val numberOfClients = 1
@@ -158,6 +162,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def oneSlowClient {
     val repeat = 300 * longRun
     val numberOfClients = 1

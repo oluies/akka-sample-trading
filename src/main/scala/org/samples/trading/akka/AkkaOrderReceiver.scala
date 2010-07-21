@@ -11,7 +11,13 @@ class AkkaOrderReceiver(val matchingEngines: List[ActorRef])
     extends Actor with OrderReceiver {
   type ME = ActorRef
 
-  self.dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
+  val disp = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
+  disp.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+   .setCorePoolSize(1)
+   .setMaxPoolSize(1)
+   .setKeepAliveTimeInMillis(60000)
+   .buildThreadPool
+  self.dispatcher = disp
 
   def receive = {
     case order: Order => placeOrder(order)
