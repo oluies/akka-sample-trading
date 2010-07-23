@@ -6,8 +6,7 @@ import Assert._
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
-import scala.actors._
-import scala.actors.threadpool._
+import scala.concurrent.ops.spawn
 
 import org.samples.trading.domain._
 import org.samples.trading.common._
@@ -16,9 +15,6 @@ class BasicPerformanceTest extends PerformanceTest {
   type TS = BasicTradingSystem
   type OR = BasicOrderReceiver
   
-//  val threadPool: ExecutorService = Executors.newFixedThreadPool(4)
-  val threadPool: ExecutorService = Executors.newCachedThreadPool()
-
   override def createTradingSystem: TS = new BasicTradingSystem
 
   override def placeOrder(orderReceiver: BasicOrderReceiver, order: Order): Rsp = {
@@ -42,7 +38,7 @@ class BasicPerformanceTest extends PerformanceTest {
     }).toList
 
     val start = System.nanoTime
-    clients.foreach(_.start)
+    clients.foreach(c => spawn(c.run))
     val ok = latch.await(5000 + (2 + delayMs) * totalNumberOfRequests, TimeUnit.MILLISECONDS)
     val durationNs = (System.nanoTime - start)
 
@@ -51,20 +47,9 @@ class BasicPerformanceTest extends PerformanceTest {
     logMeasurement(scenario, numberOfClients, durationNs, repeat, totalNumberOfRequests)
   }
 
-  class Client(orderReceiver: BasicOrderReceiver, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Actor {
+  class Client(orderReceiver: BasicOrderReceiver, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Runnable {
 
-    def this(orderReceiver: BasicOrderReceiver, orders: List[Order], latch: CountDownLatch, repeat: Int) {
-      this (orderReceiver, orders, latch, repeat, 0)
-    }
-    
-    override def scheduler = new SchedulerAdapter {
-      def execute(block: => Unit) =
-        threadPool.execute(new Runnable {
-          def run() { block }
-        })
-    }
-
-    def act() {
+    override def run() {
       (1 to repeat).foreach(i =>
         {
           // println("Client repeat: " + i)
@@ -81,7 +66,6 @@ class BasicPerformanceTest extends PerformanceTest {
         }
         )
       latch.countDown()
-      exit
     }
   }
 }
