@@ -7,6 +7,7 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
 import scala.actors._
+import scala.actors.threadpool._
 
 import org.samples.trading.domain._
 import org.samples.trading.common._
@@ -14,6 +15,8 @@ import org.samples.trading.common._
 class ActorPerformanceTest extends PerformanceTest {
   type TS = ActorTradingSystem
   type OR = ActorOrderReceiver
+  
+  val threadPool: ExecutorService = Executors.newFixedThreadPool(10)
 
   override def createTradingSystem: TS = new ActorTradingSystem
 
@@ -52,6 +55,13 @@ class ActorPerformanceTest extends PerformanceTest {
 
   class Client(orderReceiver: ActorOrderReceiver, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Actor {
 
+    override def scheduler = new SchedulerAdapter {
+      def execute(block: => Unit) =
+        threadPool.execute(new Runnable {
+          def run() { block }
+        })
+    }
+    
     def this(orderReceiver: ActorOrderReceiver, orders: List[Order], latch: CountDownLatch, repeat: Int) {
       this (orderReceiver, orders, latch, repeat, 0)
     }

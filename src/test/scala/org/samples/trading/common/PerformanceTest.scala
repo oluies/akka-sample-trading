@@ -14,7 +14,7 @@ trait PerformanceTest {
   //	-server -Xms512M -Xmx1024M -XX:MaxGCPauseMillis=10
 
   // Use longRun = 100 for benchmark
-  val longRun = 1
+  val longRun = 10
   
   var stat: DescriptiveStatistics = _
 
@@ -61,6 +61,7 @@ trait PerformanceTest {
 
 
   @Test
+  @Ignore
   def simpleScenario {
     val repeat = 300 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size
@@ -78,6 +79,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def complexScenario2 {
     complexScenario(tradingSystem.orderReceivers.size * 2)
   }
@@ -88,11 +90,13 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def complexScenario6 {
     complexScenario(tradingSystem.orderReceivers.size * 6)
   }
 
   @Test
+  @Ignore
   def complexScenario8 {
     complexScenario(tradingSystem.orderReceivers.size * 8)
   }
@@ -100,6 +104,21 @@ trait PerformanceTest {
   @Test
   def complexScenario10 {
     complexScenario(tradingSystem.orderReceivers.size * 10)
+  }
+  
+  @Test
+  def complexScenario20 {
+    complexScenario(tradingSystem.orderReceivers.size * 20)
+  }
+  
+  @Test
+  def complexScenario30 {
+    complexScenario(tradingSystem.orderReceivers.size * 30)
+  }
+  
+  @Test
+  def complexScenario40 {
+    complexScenario(tradingSystem.orderReceivers.size * 40)
   }
 
   def complexScenario(numberOfClients: Int) {
@@ -120,6 +139,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def manyOrderbooks {
     val repeat = 2 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size
@@ -133,6 +153,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def manyClients {
     val repeat = 1 * longRun
     val numberOfClients = tradingSystem.orderReceivers.size * 10
@@ -146,6 +167,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def oneClient {
     val repeat = 10000 * longRun
     val numberOfClients = 1
@@ -158,6 +180,7 @@ trait PerformanceTest {
   }
 
   @Test
+  @Ignore
   def oneSlowClient {
     val repeat = 300 * longRun
     val numberOfClients = 1

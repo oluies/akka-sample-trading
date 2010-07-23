@@ -2,6 +2,7 @@ package org.samples.trading.actor
 
 import scala.actors._
 import scala.actors.Actor._
+import scala.actors.threadpool._
 
 import org.samples.trading.common.MatchingEngine
 import org.samples.trading.domain.Order
@@ -10,8 +11,16 @@ import org.samples.trading.domain.Rsp
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
-class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook]) extends Actor with MatchingEngine {
+class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook], val threadPool: ExecutorService) 
+    extends Actor with MatchingEngine {
   var standby: Option[ActorMatchingEngine] = None
+  
+  override def scheduler = new SchedulerAdapter {
+      def execute(block: => Unit) =
+        threadPool.execute(new Runnable {
+          def run() { block }
+        })
+    }
 
   def act() {
     loop {

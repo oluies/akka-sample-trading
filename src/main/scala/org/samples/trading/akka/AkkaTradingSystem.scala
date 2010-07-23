@@ -17,16 +17,14 @@ class AkkaTradingSystem extends TradingSystem {
 
   val orDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
   orDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(2)
-   .setMaxPoolSize(2)
-   .setKeepAliveTimeInMillis(60000)
+   .setCorePoolSize(1)
+   .setMaxPoolSize(1)
    .buildThreadPool
    
   val meDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
   meDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(20)
-   .setMaxPoolSize(20)
-   .setKeepAliveTimeInMillis(60000)
+   .setCorePoolSize(16)
+   .setMaxPoolSize(16)
    .buildThreadPool
   
   var matchingEngineForOrderbook: Map[String, Option[ActorRef]] = Map()

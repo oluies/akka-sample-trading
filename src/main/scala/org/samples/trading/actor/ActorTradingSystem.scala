@@ -5,10 +5,14 @@ import org.samples.trading.common._
 import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.StandbyTradeObserver
 import scala.actors.Actor
+import scala.actors.threadpool._
 
 class ActorTradingSystem extends TradingSystem {
   type ME = ActorMatchingEngine
   type OR = ActorOrderReceiver
+  
+  val orThreadPool: ExecutorService = Executors.newFixedThreadPool(2)
+  val meThreadPool: ExecutorService = Executors.newFixedThreadPool(16)
 
   override def createMatchingEngines = {
     var i = 0
@@ -16,11 +20,11 @@ class ActorTradingSystem extends TradingSystem {
       for (orderbooks: List[Orderbook] <- orderbooksGroupedByMatchingEngine)
       yield {
         i = i + 1
-        val me = new ActorMatchingEngine("ME" + i, orderbooks)
+        val me = new ActorMatchingEngine("ME" + i, orderbooks, meThreadPool)
         val orderbooksCopy = orderbooks map (o => new Orderbook(o.symbol) with StandbyTradeObserver)
         val standbyOption =
           if (useStandByEngines) {
-            val meStandby = new ActorMatchingEngine("ME" + i + "s", orderbooksCopy)
+            val meStandby = new ActorMatchingEngine("ME" + i + "s", orderbooksCopy, meThreadPool)
             Some(meStandby)
           } else {
             None
@@ -34,7 +38,7 @@ class ActorTradingSystem extends TradingSystem {
 
   override def createOrderReceivers: List[ActorOrderReceiver] = {
     val primaryMatchingEngines = matchingEngines.map(pair => pair._1).toList
-    (1 to 10).toList map (i => new ActorOrderReceiver(primaryMatchingEngines))
+    (1 to 10).toList map (i => new ActorOrderReceiver(primaryMatchingEngines, orThreadPool))
   }
 
   override def start {

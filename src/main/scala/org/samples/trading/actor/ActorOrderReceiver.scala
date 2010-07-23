@@ -3,14 +3,23 @@ package org.samples.trading.actor
 import org.samples.trading.common.OrderReceiver
 import scala.actors._
 import scala.actors.Actor._
+import scala.actors.threadpool._
 
 import org.samples.trading.domain.Order
 import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.SupportedOrderbooksReq
 import org.samples.trading.domain.Rsp
 
-class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine]) extends Actor with OrderReceiver {
+class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine], val threadPool: ExecutorService) 
+    extends Actor with OrderReceiver {
   type ME = ActorMatchingEngine
+  
+  override def scheduler = new SchedulerAdapter {
+      def execute(block: => Unit) =
+        threadPool.execute(new Runnable {
+          def run() { block }
+        })
+    }
 
   def act() {
     loop {

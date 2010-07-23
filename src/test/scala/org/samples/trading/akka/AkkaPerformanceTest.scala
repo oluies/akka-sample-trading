@@ -22,7 +22,6 @@ class AkkaPerformanceTest extends PerformanceTest {
   clientDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
    .setCorePoolSize(10)
    .setMaxPoolSize(10)
-   .setKeepAliveTimeInMillis(60000)
    .buildThreadPool
 
   override def createTradingSystem: TS = new AkkaTradingSystem
