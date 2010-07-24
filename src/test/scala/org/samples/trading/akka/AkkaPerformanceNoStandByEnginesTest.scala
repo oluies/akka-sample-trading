@@ -6,6 +6,7 @@ import Assert._
 import se.scalablesolutions.akka.actor._
 import se.scalablesolutions.akka.actor.Actor._
 
+@Ignore
 class AkkaPerformanceNoStandByEnginesTest extends AkkaPerformanceTest {
   override def createTradingSystem: TS = new AkkaTradingSystem {
     override def useStandByEngines: Boolean = false}

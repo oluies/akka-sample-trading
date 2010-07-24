@@ -8,9 +8,7 @@ import se.scalablesolutions.akka.dispatch.Dispatchers
 import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 import org.samples.trading.common.MatchingEngine
-import org.samples.trading.domain.Order
-import org.samples.trading.domain.Orderbook
-import org.samples.trading.domain.Rsp
+import org.samples.trading.domain._
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
@@ -21,7 +19,7 @@ class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp
 
   def receive = {
     case standbyRef: ActorRef => standby = Some(standbyRef)
-    case SupportedOrderbooksReq => reply(orderbooks)
+    case SupportedOrderbooksReq => self.reply(orderbooks)
     case order: Order => handleOrder(order)
     case unknown => println("Received unknown message: " + unknown)
   }
@@ -41,10 +39,10 @@ class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp
         orderbook.matchOrders
         // wait for standby reply
         pendingStandbyReply.foreach(waitForStandby(_))
-        reply(new Rsp(true))
+        self.reply(new Rsp(true))
       case None =>
         println("Orderbook not handled by this MatchingEngine: " + order.orderbookSymbol)
-        reply(new Rsp(false))
+        self.reply(new Rsp(false))
     }
   }
 

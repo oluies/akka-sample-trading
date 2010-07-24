@@ -29,8 +29,7 @@ class AkkaPerformanceTest extends PerformanceTest {
   override
   def placeOrder(orderReceiver: ActorRef, order: Order): Rsp = {
     val r = orderReceiver !! order
-    val rsp = r.getOrElse(new Rsp(false))
-    rsp
+    r.getOrElse(new Rsp(false)).asInstanceOf[Rsp]
   }
 
 
@@ -79,7 +78,7 @@ class AkkaPerformanceTest extends PerformanceTest {
               val duration = System.nanoTime - t0
               stat.addValue(duration)
               if (!rsp.status) {
-                throw new IllegalStateException("Invalid rsp")
+                println("Invalid rsp")
               }
               delay(delayMs)
             }

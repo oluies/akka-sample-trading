@@ -6,6 +6,7 @@ import Assert._
 import scala.actors._
 import scala.actors.Actor._
 
+@Ignore
 class ActorPerformanceNoStandByEnginesTest extends ActorPerformanceTest {
   override def createTradingSystem: TS = new ActorTradingSystem {
     override def useStandByEngines: Boolean = false}

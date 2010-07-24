@@ -13,8 +13,8 @@ trait PerformanceTest {
   //	jvm parameters
   //	-server -Xms512M -Xmx1024M -XX:MaxGCPauseMillis=10
 
-  // Use longRun = 100 for benchmark
-  val longRun = 10
+  // Use longRun for benchmark
+  val longRun = if (System.getProperty("benchmark") == null) 10 else 40;
   
   var stat: DescriptiveStatistics = _
 
@@ -47,7 +47,7 @@ trait PerformanceTest {
     tradingSystem.shutdown
   }
 
-  private def warmUp {
+  def warmUp {
     val bid = new Bid("A1", 100, 1000)
     val ask = new Ask("A1", 100, 1000)
 
@@ -73,56 +73,21 @@ trait PerformanceTest {
     runScenario("simpleScenario", orders, repeat, numberOfClients, 0)
   }
 
-  @Test
-  def complexScenario1 {
-    complexScenario(tradingSystem.orderReceivers.size)
-  }
-
-  @Test
-  @Ignore
-  def complexScenario2 {
-    complexScenario(tradingSystem.orderReceivers.size * 2)
-  }
-
-  @Test
-  def complexScenario4 {
-    complexScenario(tradingSystem.orderReceivers.size * 4)
-  }
-
-  @Test
-  @Ignore
-  def complexScenario6 {
-    complexScenario(tradingSystem.orderReceivers.size * 6)
-  }
-
-  @Test
-  @Ignore
-  def complexScenario8 {
-    complexScenario(tradingSystem.orderReceivers.size * 8)
-  }
-
-  @Test
-  def complexScenario10 {
-    complexScenario(tradingSystem.orderReceivers.size * 10)
-  }
+  @Test def complexScenario1 = complexScenario(1)
+  @Test def complexScenario2 = complexScenario(2)
+  @Test def complexScenario4 = complexScenario(4)
+  @Test def complexScenario6 = complexScenario(6)
+  @Test def complexScenario8 = complexScenario(8)
+  @Test def complexScenario10 = complexScenario(10)
+  @Test def complexScenario50 = complexScenario(50)
+  @Test def complexScenario100 = complexScenario(100)
+  @Test def complexScenario200 = complexScenario(200)
+  @Test def complexScenario300 = complexScenario(300)
+  @Test def complexScenario400 = complexScenario(400)
   
-  @Test
-  def complexScenario20 {
-    complexScenario(tradingSystem.orderReceivers.size * 20)
-  }
-  
-  @Test
-  def complexScenario30 {
-    complexScenario(tradingSystem.orderReceivers.size * 30)
-  }
-  
-  @Test
-  def complexScenario40 {
-    complexScenario(tradingSystem.orderReceivers.size * 40)
-  }
 
   def complexScenario(numberOfClients: Int) {
-    val repeat = 50 * longRun * tradingSystem.orderReceivers.size / numberOfClients
+    val repeat = 500 * longRun / numberOfClients
 
     val prefixes = "A" :: "B" :: "C" :: Nil
     val askOrders = for{

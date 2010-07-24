@@ -3,6 +3,7 @@ package org.samples.trading.basic
 import org.junit._
 import Assert._
 
+@Ignore
 class BasicPerformanceNoStandByEnginesTest extends BasicPerformanceTest {
   override def createTradingSystem: TS = new BasicTradingSystem {
     override def useStandByEngines: Boolean = false}

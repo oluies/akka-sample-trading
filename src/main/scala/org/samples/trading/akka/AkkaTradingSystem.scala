@@ -36,11 +36,11 @@ class AkkaTradingSystem extends TradingSystem {
       for (orderbooks: List[Orderbook] <- orderbooksGroupedByMatchingEngine)
       yield {
         i = i + 1
-        val me = actorOf(new AkkaMatchingEngine("ME" + i, orderbooks, meDispatcher))
+        val me = createMatchingEngine("ME" + i, orderbooks)
         val orderbooksCopy = orderbooks map (o => new Orderbook(o.symbol) with StandbyTradeObserver)
         val standbyOption =
           if (useStandByEngines) {
-            val meStandby = actorOf(new AkkaMatchingEngine("ME" + i + "s", orderbooksCopy, meDispatcher))
+            val meStandby = createMatchingEngine("ME" + i + "s", orderbooksCopy)
             Some(meStandby)
           } else {
             None
@@ -51,11 +51,17 @@ class AkkaTradingSystem extends TradingSystem {
 
     Map() ++ pairs;
   }
+  
+  def createMatchingEngine(meId: String, orderbooks: List[Orderbook]) = 
+    actorOf(new AkkaMatchingEngine(meId, orderbooks, meDispatcher))
 
   override def createOrderReceivers: List[ActorRef] = {
     val primaryMatchingEngines = matchingEngines.map(pair => pair._1).toList
-    (1 to 10).toList map (i => actorOf(new AkkaOrderReceiver(primaryMatchingEngines, orDispatcher)))
+    (1 to 10).toList map (i => createOrderReceiver(primaryMatchingEngines))
   }
+  
+  def createOrderReceiver(matchingEngines: List[ActorRef]) = 
+    actorOf(new AkkaOrderReceiver(matchingEngines, orDispatcher))
 
 
   override def start {
