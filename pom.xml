@@ -52,8 +52,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
-					<forkMode>once</forkMode>
-					<argLine>-Xms32m -Xmx1024m</argLine>
+					<forkMode>always</forkMode>
+					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -123,14 +123,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<artifactId>akka-core_2.8.0.RC3</artifactId>
+			<artifactId>akka-core_2.8.0</artifactId>
 		    <groupId>se.scalablesolutions.akka</groupId>
-		    <version>0.9.1</version>
-    	</dependency>
-    	<dependency>
-    		<groupId>org.multiverse</groupId>
-    		<artifactId>multiverse-alpha</artifactId>
-    		<version>0.4</version>
+		    <version>0.10</version>
     	</dependency>
 	</dependencies>
 
@@ -163,6 +158,7 @@
 		  <name>JBoss Maven2 Repository</name>
 		  <url>https://repository.jboss.org/nexus/content/groups/public/ </url>
 		</repository>
+		
 	</repositories>
 
 	<pluginRepositories>
