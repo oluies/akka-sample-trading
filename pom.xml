@@ -53,7 +53,7 @@
 				<version>2.3</version>
 				<configuration>
 					<forkMode>always</forkMode>
-					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC</argLine>
+					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -Dbenchmark=false</argLine>
 				</configuration>
 			</plugin>
 			<plugin>

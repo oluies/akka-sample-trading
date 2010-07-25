@@ -11,10 +11,14 @@ import org.samples.trading.domain._
 trait PerformanceTest {
 
   //	jvm parameters
-  //	-server -Xms512M -Xmx1024M -XX:MaxGCPauseMillis=10
+  //	-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -Dbenchmark=true
 
   // Use longRun for benchmark
-  val longRun = if (System.getProperty("benchmark") == null) 10 else 40;
+  val longRun = if (isBenchmark) 50 else 10;
+  
+  def isBenchmark() = 
+    System.getProperty("benchmark") == "true" 
+  
   
   var stat: DescriptiveStatistics = _
 
@@ -79,11 +83,14 @@ trait PerformanceTest {
   @Test def complexScenario6 = complexScenario(6)
   @Test def complexScenario8 = complexScenario(8)
   @Test def complexScenario10 = complexScenario(10)
-  @Test def complexScenario50 = complexScenario(50)
+  @Test def complexScenario20 = complexScenario(20)
+  @Test def complexScenario40 = complexScenario(40)
+  @Test def complexScenario60 = complexScenario(60)
+  @Test def complexScenario80 = complexScenario(80)
   @Test def complexScenario100 = complexScenario(100)
-  @Test def complexScenario200 = complexScenario(200)
-  @Test def complexScenario300 = complexScenario(300)
-  @Test def complexScenario400 = complexScenario(400)
+  @Ignore @Test def complexScenario200 = complexScenario(200)
+  @Ignore @Test def complexScenario300 = complexScenario(300)
+  @Ignore @Test def complexScenario400 = complexScenario(400)
   
 
   def complexScenario(numberOfClients: Int) {
@@ -100,7 +107,7 @@ trait PerformanceTest {
       yield new Bid(s + i, 100 - i, 1000)
     val orders = askOrders ::: bidOrders
 
-    runScenario("complexScenario", orders, repeat, numberOfClients, 0)
+    runScenario("benchmark", orders, repeat, numberOfClients, 0)
   }
 
   @Test
@@ -161,17 +168,35 @@ trait PerformanceTest {
     val durationUs = durationNs / 1000
     val durationMs = durationNs / 1000000
     val durationS = durationNs.toDouble / 1000000000.0
-    println("## " + getClass.getSimpleName + "." + scenario + "[" + stat.getN + "]: "
-        + numberOfClients + " clients, "
-        + durationMs + " ms, "
-        + (stat.getMean / 1000).formatted("%.0f") + " us/order, "
-        + (stat.getN.toDouble / durationS).formatted("%.0f") + " TPS, "
-        + "5% " + (stat.getPercentile(5.0) / 1000).formatted("%.0f") + " us, "
-        + "25% " + (stat.getPercentile(25.0) / 1000).formatted("%.0f") + " us, "
-        + "50% " + (stat.getPercentile(50.0) / 1000).formatted("%.0f") + " us, "
-        + "75% " + (stat.getPercentile(75.0) / 1000).formatted("%.0f") + " us, "
-        + "95% " + (stat.getPercentile(95.0) / 1000).formatted("%.0f") + " us"
-        )
+    val duration = durationS.formatted("%.0f")
+    val n = stat.getN
+    val mean = (stat.getMean / 1000).formatted("%.0f")
+    val tps = (stat.getN.toDouble / durationS).formatted("%.0f")
+    val p5 = (stat.getPercentile(5.0) / 1000).formatted("%.0f")
+    val p25 = (stat.getPercentile(25.0) / 1000).formatted("%.0f")
+    val p50 = (stat.getPercentile(50.0) / 1000).formatted("%.0f")
+    val p75 = (stat.getPercentile(75.0) / 1000).formatted("%.0f")
+    val p95 = (stat.getPercentile(95.0) / 1000).formatted("%.0f")
+    val name = getClass.getSimpleName + "." + scenario
+    
+    val summaryLine = name :: numberOfClients.toString :: tps :: mean :: p5 :: p25 :: p50 :: p75 :: p95 :: duration :: n :: Nil
+    StatSingleton.results = summaryLine.mkString("\t") :: StatSingleton.results
+    
+
+    val spaces = "                                                                                     "
+    val headerScenarioCol = ("Scenario" + spaces).take(name.length)
+    
+    val headerLine =  (headerScenarioCol ::        "clients" :: "TPS" :: "mean" :: "5%  " :: "25% " :: "50% " :: "75% " :: "95% " :: "Durat." :: "N" :: Nil)
+      .mkString("\t")
+    val headerLine2 = (spaces.take(name.length) :: "       " :: "   " :: "(us)" :: "(us)" :: "(us)" :: "(us)" :: "(us)" :: "(us)" :: "(s)   " :: " " :: Nil)
+      .mkString("\t")
+    val line = List.fill(StatSingleton.results.head.replaceAll("\t", "      ").length)("-").mkString 
+    println(line.replace('-', '='))
+    println(headerLine)
+    println(headerLine2)
+    println(line)
+    println(StatSingleton.results.reverse.mkString("\n"))
+    println(line)
   }
 
   def delay(delayMs: Int) {
@@ -188,4 +213,8 @@ trait PerformanceTest {
     }
   }
 
+}
+
+object StatSingleton {
+  var results: List[String] = Nil
 }
