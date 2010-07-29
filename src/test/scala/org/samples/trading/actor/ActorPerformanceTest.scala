@@ -14,7 +14,6 @@ import org.samples.trading.common._
 
 class ActorPerformanceTest extends PerformanceTest {
   type TS = ActorTradingSystem
-  type OR = ActorOrderReceiver
   
   val threadPool: ExecutorService = Executors.newFixedThreadPool(10)
 

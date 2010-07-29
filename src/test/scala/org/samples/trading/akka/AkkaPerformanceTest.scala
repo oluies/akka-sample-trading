@@ -16,7 +16,6 @@ import se.scalablesolutions.akka.dispatch.Dispatchers
 
 class AkkaPerformanceTest extends PerformanceTest {
   type TS = AkkaTradingSystem
-  type OR = ActorRef
   
   val clientDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
   clientDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  

@@ -13,7 +13,6 @@ import org.samples.trading.common._
 
 class BasicPerformanceTest extends PerformanceTest {
   type TS = BasicTradingSystem
-  type OR = BasicOrderReceiver
   
   override def createTradingSystem: TS = new BasicTradingSystem
 

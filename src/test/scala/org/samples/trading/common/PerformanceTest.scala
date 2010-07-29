@@ -23,16 +23,13 @@ trait PerformanceTest {
   var stat: DescriptiveStatistics = _
 
   type TS <: TradingSystem
-  // TODO is it possible to define tyep OR as type of TradingSystem?
-  //type OR = TS#OR
-  type OR
 
   var tradingSystem: TS = _
   val random: Random = new Random()
 
   def createTradingSystem: TS
 
-  def placeOrder(orderReceiver: OR, order: Order): Rsp
+  def placeOrder(orderReceiver: TS#OR, order: Order): Rsp
 
   def runScenario(scenario: String, orders: List[Order], repeat: Int, numberOfClients: Int, delayMs: Int)
 
@@ -57,9 +54,8 @@ trait PerformanceTest {
 
     val orderReceiver = tradingSystem.orderReceivers.head
     for (i <- 1 to 10) {
-      // TODO would like to get rid of those asInstanceOf, see comment in type definition above
-      placeOrder(orderReceiver.asInstanceOf[OR], bid)
-      placeOrder(orderReceiver.asInstanceOf[OR], ask)
+      placeOrder(orderReceiver, bid)
+      placeOrder(orderReceiver, ask)
     }
   }
 
