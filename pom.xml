@@ -53,7 +53,7 @@
 				<version>2.3</version>
 				<configuration>
 					<forkMode>always</forkMode>
-					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -Dbenchmark=false</argLine>
+					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=true -Dbenchmark=false</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -127,6 +127,21 @@
 		    <groupId>se.scalablesolutions.akka</groupId>
 		    <version>0.10</version>
     	</dependency>
+    	<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 
 	<repositories>
