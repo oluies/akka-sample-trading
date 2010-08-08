@@ -4,7 +4,7 @@ abstract class Orderbook(val symbol: String) {
   var bidSide: List[Bid] = Nil
   var askSide: List[Ask] = Nil
 
-  def addOrder(order: Order) = {
+  def addOrder(order: Order) {
     assert(symbol == order.orderbookSymbol)
     order match {
       case bid: Bid =>
@@ -14,7 +14,7 @@ abstract class Orderbook(val symbol: String) {
     }
   }
 
-  def matchOrders: Unit = {
+  def matchOrders() {
     if (!bidSide.isEmpty && !askSide.isEmpty) {
       val topOfBook = (bidSide.head, askSide.head)
       topOfBook match {

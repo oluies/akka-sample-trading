@@ -7,9 +7,12 @@ import java.io.OutputStreamWriter
 import java.io.BufferedWriter
 
 
-trait TxLog {
+class TxLogDummy extends TxLog {
 
-  def storeTx(order: Order)
-  def close()
+  def storeTx(order: Order) {
+  }
+
+  def close() {
+  }
 
 }

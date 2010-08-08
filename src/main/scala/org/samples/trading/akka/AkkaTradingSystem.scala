@@ -15,17 +15,27 @@ class AkkaTradingSystem extends TradingSystem {
   type ME = ActorRef
   type OR = ActorRef
 
-  val orDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
-  orDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(1)
-   .setMaxPoolSize(1)
-   .buildThreadPool
+  val orDispatcher = createOrderReceiverDispatcher
+  val meDispatcher = createMatchingEngineDispatcher
+    
+  def createOrderReceiverDispatcher: MessageDispatcher = {  
+    val dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
+    dispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+      .setCorePoolSize(1)
+      .setMaxPoolSize(1)
+      .buildThreadPool
+    dispatcher
+  }
    
-  val meDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
-  meDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(16)
-   .setMaxPoolSize(16)
-   .buildThreadPool
+   
+  def createMatchingEngineDispatcher: MessageDispatcher = {
+    val dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
+    dispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+      .setCorePoolSize(16)
+      .setMaxPoolSize(16)
+      .buildThreadPool
+    dispatcher
+  }
   
   var matchingEngineForOrderbook: Map[String, Option[ActorRef]] = Map()
 
