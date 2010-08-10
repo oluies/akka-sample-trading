@@ -15,7 +15,7 @@ import org.samples.trading.common._
 class ActorPerformanceTest extends PerformanceTest {
   type TS = ActorTradingSystem
   
-  val threadPool: ExecutorService = Executors.newFixedThreadPool(10)
+  val threadPool: ExecutorService = Executors.newFixedThreadPool(40)
 
   override def createTradingSystem: TS = new ActorTradingSystem
 

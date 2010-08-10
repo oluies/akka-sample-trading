@@ -11,7 +11,7 @@ class ActorTradingSystem extends TradingSystem {
   type ME = ActorMatchingEngine
   type OR = ActorOrderReceiver
   
-  val orThreadPool: ExecutorService = Executors.newFixedThreadPool(2)
+  val orThreadPool: ExecutorService = Executors.newFixedThreadPool(1)
   val meThreadPool: ExecutorService = Executors.newFixedThreadPool(16)
 
   override def createMatchingEngines = {

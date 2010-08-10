@@ -19,8 +19,8 @@ class AkkaPerformanceTest extends PerformanceTest {
   
   val clientDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
   clientDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(10)
-   .setMaxPoolSize(10)
+   .setCorePoolSize(40)
+   .setMaxPoolSize(40)
    .buildThreadPool
 
   override def createTradingSystem: TS = new AkkaTradingSystem
