@@ -1,1 +1,3 @@
-Sample
+Trading Sample with Scala and Akka.
+
+Including performance benchmark test described in blog: http://blog.jayway.com/2010/08/10/yet-another-akka-benchmark/
