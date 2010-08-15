@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>0.10.0</version>
+	<version>0.10.20100815</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
@@ -54,6 +54,11 @@
 				<configuration>
 					<forkMode>always</forkMode>
 					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=true -Dbenchmark=false</argLine>
+					<!-- 
+					<includes>
+						<include>**/AkkaHawtPerformanceTest.*</include>
+					</includes>
+					 -->
 					<excludes>
 			            <exclude>**/AllBenchmarkTests.java</exclude>
 					</excludes>
