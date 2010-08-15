@@ -1,3 +1,24 @@
 Trading Sample with Scala and Akka.
 
 Including performance benchmark test described in blog: http://blog.jayway.com/2010/08/10/yet-another-akka-benchmark/
+
+=== How to run benchmark from distribution ===
+
+Download and unzip distribution assembly: dist
+The distribution assembly contains all jar files, including necessary dependencies.
+
+In the scripts directory of the distribution there is a run_benchmark.sh script that can be used to launch tests.
+
+Argument to the script is the junit test class or classes to run.
+./run_benchmark.sh org.samples.trading.akka.AkkaPerformanceTest
+
+There is a test suite running all benchmark tests.
+./run_benchmark.sh org.samples.trading.AllBenchmarkTests
+
+You need to define JAVA_HOME for JDK6, if you don't have it as default.
+
+Better accuracy (running tests longer) is achieved if you change the following jvm parameter in the script:
+-Dbenchmark=true
+
+The benchmark can also be run without transaction logging by modifying the following jvm parameter in the script:
+-DuseTxLogFile=false
