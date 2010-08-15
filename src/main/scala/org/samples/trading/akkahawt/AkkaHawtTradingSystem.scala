@@ -27,9 +27,9 @@ class AkkaHawtTradingSystem extends AkkaBangTradingSystem {
     super.start()
     
     for ((p, s) <- matchingEngines) {
-      HawtDispatcher.pin(p)
+//      HawtDispatcher.pin(p)
       if (s != None) {
-        HawtDispatcher.pin(s.get)
+//        HawtDispatcher.pin(s.get)
         HawtDispatcher.target(p, HawtDispatcher.queue(s.get))
       }
     }
