@@ -3,6 +3,7 @@ package org.samples.trading;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.samples.trading.actor.ActorPerformanceTest;
+import org.samples.trading.actorbang.ActorBangPerformanceTest;
 import org.samples.trading.akka.AkkaPerformanceTest;
 import org.samples.trading.akkabang.AkkaBangPerformanceTest;
 import org.samples.trading.akkahawt.AkkaHawtPerformanceTest;
@@ -13,6 +14,7 @@ import org.samples.trading.basic.BasicPerformanceTest;
   BasicPerformanceTest.class, 
   ActorPerformanceTest.class,
   AkkaPerformanceTest.class,
+  ActorBangPerformanceTest.class,
   AkkaBangPerformanceTest.class,
   AkkaHawtPerformanceTest.class
   

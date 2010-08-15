@@ -31,7 +31,7 @@ class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine], val thr
     }
   }
 
-  private def placeOrder(order: Order) = {
+  protected def placeOrder(order: Order) = {
     if (matchingEnginePartitionsIsStale) refreshMatchingEnginePartitions
     val matchingEngine = matchingEngineForOrderbook(order.orderbookSymbol)
     matchingEngine match {
