@@ -24,15 +24,12 @@ class AkkaHawtTradingSystem extends AkkaBangTradingSystem {
   def createMatchingEngineDispatcher: MessageDispatcher = hawtDispatcher
   
   override def start {
-    for ((p, s) <- matchingEngines) {
-      HawtDispatcher.pin(p)
-      s.foreach(HawtDispatcher.pin(_))
-    }
-    
     super.start()
     
     for ((p, s) <- matchingEngines) {
+      HawtDispatcher.pin(p)
       if (s != None) {
+        HawtDispatcher.pin(s.get)
         HawtDispatcher.target(p, HawtDispatcher.queue(s.get))
       }
     }
