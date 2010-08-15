@@ -28,6 +28,14 @@
         <include>*.*</include>
       </includes>
     </fileSet>
+    <fileSet>
+      <directory>${project.basedir}/src/main/resources</directory>
+      <outputDirectory>/conf</outputDirectory>
+      <includes>
+        <include>akka.conf</include>
+        <include>logback.xml</include>
+      </includes>
+    </fileSet>
   </fileSets>
   <dependencySets>
     <dependencySet>
