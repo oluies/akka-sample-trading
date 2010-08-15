@@ -1,9 +1,12 @@
 #!/bin/bash
 
 TEST_CLASSES=$@
-VMARGS='-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=true -Dbenchmark=false'
+#BENCH_PROPS can be defined outside of this script
+#export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true'
+VMARGS='-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC'
+VMARGS="$VMARGS $BENCH_PROPS"
 
-# JAVA_HOME can optionally be set here
+# JAVA_HOME can optionally be set here, or outside script
 #JAVA_HOME=/usr/local/jdk6
 if [ -n "$JAVA_HOME" ] ; then
   JAVA=$JAVA_HOME/bin/java
@@ -11,8 +14,8 @@ else
   JAVA=java
 fi
 
-BENCHMARK_HOME=`dirname $0`/..
-DIRLIBS=`ls $BENCHMARK_HOME/lib/*`
+BENCH_HOME=`dirname $0`/..
+DIRLIBS=`ls $BENCH_HOME/lib/*`
 
 
     if [ -n "$CLASSPATH" ] ; then
@@ -29,4 +32,7 @@ DIRLIBS=`ls $BENCHMARK_HOME/lib/*`
 	fi
     done
 
-$JAVA ${VMARGS} -classpath ${LOCALCLASSPATH} org.junit.runner.JUnitCore $TEST_CLASSES
+LOCALCLASSPATH=$BENCH_HOME/conf:$LOCALCLASSPATH
+
+echo "Running " ${VMARGS} ${TEST_CLASSES}
+$JAVA ${VMARGS} -classpath ${LOCALCLASSPATH} org.junit.runner.JUnitCore ${TEST_CLASSES}
