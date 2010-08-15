@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.10.0</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
@@ -50,11 +50,15 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.5</version>
 				<configuration>
 					<forkMode>always</forkMode>
 					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=true -Dbenchmark=false</argLine>
+					<excludes>
+			            <exclude>**/AllBenchmarkTests.java</exclude>
+					</excludes>
 				</configuration>
+				
 			</plugin>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -78,6 +82,35 @@
 						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
 					</additionalProjectnatures>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+		        <!-- 
+		        <configuration>
+		        	<archive>
+			            <manifest>
+			              <mainClass>org.junit.runner.JUnitCore</mainClass>
+			              <addClasspath>true</addClasspath>
+			            </manifest>
+			          </archive>
+		        </configuration>
+		         -->
+		        <executions> 
+                    <execution> 
+                        <goals> 
+                            <goal>test-jar</goal> 
+                        </goals> 
+                    </execution> 
+                </executions>
+			</plugin>
+			<plugin>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.2-beta-5</version>
+		        <configuration>
+		          <descriptors>
+		            <descriptor>src/main/assembly/dist.xml</descriptor>
+		          </descriptors>
+		        </configuration>
 			</plugin>
 		</plugins>
 
@@ -108,7 +141,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.6</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope>  -->
 		</dependency>
 		<dependency>
 			<groupId>org.scala-tools.testing</groupId>
