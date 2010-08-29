@@ -12,8 +12,8 @@ import org.samples.trading.domain.Rsp
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
-class ActorBangMatchingEngine(val meId2: String, val orderbooks2: List[Orderbook], val threadPool2: ExecutorService) 
-    extends ActorMatchingEngine(meId2, orderbooks2, threadPool2) {
+class ActorBangMatchingEngine(val meId2: String, val orderbooks2: List[Orderbook]) 
+    extends ActorMatchingEngine(meId2, orderbooks2) {
   
   override
   def handleOrder(order: Order) {

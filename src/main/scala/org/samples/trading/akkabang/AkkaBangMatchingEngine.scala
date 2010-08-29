@@ -15,7 +15,7 @@ import org.samples.trading.domain.Rsp
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
-class AkkaBangMatchingEngine(val meId2: String, val orderbooks2: List[Orderbook], disp2: MessageDispatcher) 
+class AkkaBangMatchingEngine(val meId2: String, val orderbooks2: List[Orderbook], disp2: Option[MessageDispatcher]) 
   extends AkkaMatchingEngine(meId2, orderbooks2, disp2) {
   
   override

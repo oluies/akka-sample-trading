@@ -9,7 +9,7 @@ import se.scalablesolutions.akka.dispatch.MessageDispatcher
 import org.samples.trading.akka._
 import org.samples.trading.domain._
 
-class AkkaBangOrderReceiver(val matchingEngines2: List[ActorRef], disp2: MessageDispatcher)
+class AkkaBangOrderReceiver(val matchingEngines2: List[ActorRef], disp2: Option[MessageDispatcher])
     extends AkkaOrderReceiver(matchingEngines2, disp2) {
 
   override def placeOrder(order: Order) = {

@@ -11,9 +11,6 @@ class ActorTradingSystem extends TradingSystem {
   type ME = ActorMatchingEngine
   type OR = ActorOrderReceiver
   
-  val orThreadPool: ExecutorService = Executors.newFixedThreadPool(1)
-  val meThreadPool: ExecutorService = Executors.newFixedThreadPool(16)
-
   override def createMatchingEngines = {
     var i = 0
     val pairs =
@@ -37,7 +34,7 @@ class ActorTradingSystem extends TradingSystem {
   }
   
   def createMatchingEngine(meId: String, orderbooks: List[Orderbook]) =
-    new ActorMatchingEngine(meId, orderbooks, meThreadPool)
+    new ActorMatchingEngine(meId, orderbooks)
 
   override def createOrderReceivers: List[ActorOrderReceiver] = {
     val primaryMatchingEngines = matchingEngines.map(pair => pair._1).toList
@@ -45,7 +42,7 @@ class ActorTradingSystem extends TradingSystem {
   }
   
   def createOrderReceiver(matchingEngines: List[ActorMatchingEngine]) =
-    new ActorOrderReceiver(matchingEngines, orThreadPool)
+    new ActorOrderReceiver(matchingEngines)
 
   override def start {
 

@@ -12,8 +12,9 @@ import org.samples.trading.domain._
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
-class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp: MessageDispatcher) extends Actor with MatchingEngine {
-  self.dispatcher = disp
+class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp: Option[MessageDispatcher]) extends Actor with MatchingEngine {
+  if (disp.isDefined)
+    self.dispatcher = disp.get
 
   var standby: Option[ActorRef] = None
 

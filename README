@@ -23,6 +23,6 @@ export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true'
 Better accuracy (running tests longer) is achieved if you define jvm parameter:
 -Dbenchmark=true
 
-The benchmark can be run without transaction logging if you define jvm parameter:
--DuseTxLogFile=false
+By default the benchmark is run without transaction logging, you can use transaction logging by defining jvm parameter:
+-DuseTxLogFile=true
 

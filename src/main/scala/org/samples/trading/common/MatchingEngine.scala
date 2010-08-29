@@ -17,6 +17,7 @@ trait MatchingEngine {
   
   def useTxLogFile() = {
       val prop = System.getProperty("useTxLogFile")
-      (prop == null) || (prop == "true")  
+      // default false, if not defined
+      (prop == "true")
     }
 }

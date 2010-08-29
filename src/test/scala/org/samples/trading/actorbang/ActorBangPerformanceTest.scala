@@ -15,7 +15,7 @@ class ActorBangPerformanceTest extends ActorPerformanceTest {
   override def createTradingSystem: TS = new ActorBangTradingSystem {
     override
     def createMatchingEngine(meId: String, orderbooks: List[Orderbook]) = 
-      new ActorBangMatchingEngine(meId, orderbooks, meThreadPool) with LatchMessageCountDown
+      new ActorBangMatchingEngine(meId, orderbooks) with LatchMessageCountDown
   }
 
   override def placeOrder(orderReceiver: ActorOrderReceiver, order: Order): Rsp = {

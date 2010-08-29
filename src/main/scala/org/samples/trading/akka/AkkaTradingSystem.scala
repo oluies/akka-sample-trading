@@ -18,24 +18,11 @@ class AkkaTradingSystem extends TradingSystem {
   val orDispatcher = createOrderReceiverDispatcher
   val meDispatcher = createMatchingEngineDispatcher
     
-  def createOrderReceiverDispatcher: MessageDispatcher = {  
-    val dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
-    dispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-      .setCorePoolSize(1)
-      .setMaxPoolSize(1)
-      .buildThreadPool
-    dispatcher
-  }
-   
-   
-  def createMatchingEngineDispatcher: MessageDispatcher = {
-    val dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("me-dispatcher")
-    dispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-      .setCorePoolSize(16)
-      .setMaxPoolSize(16)
-      .buildThreadPool
-    dispatcher
-  }
+  // by default we use default-dispatcher that is defined in akka.conf
+  def createOrderReceiverDispatcher: Option[MessageDispatcher] = None  
+  
+  // by default we use default-dispatcher that is defined in akka.conf
+  def createMatchingEngineDispatcher: Option[MessageDispatcher] = None
   
   var matchingEngineForOrderbook: Map[String, Option[ActorRef]] = Map()
 

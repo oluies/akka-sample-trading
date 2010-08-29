@@ -11,8 +11,8 @@ import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.SupportedOrderbooksReq
 import org.samples.trading.domain.Rsp
 
-class ActorBangOrderReceiver(val matchingEngines2: List[ActorMatchingEngine], val threadPool2: ExecutorService) 
-    extends ActorOrderReceiver(matchingEngines2, threadPool2) {
+class ActorBangOrderReceiver(val matchingEngines2: List[ActorMatchingEngine]) 
+    extends ActorOrderReceiver(matchingEngines2) {
   
   override protected def placeOrder(order: Order) = {
     if (matchingEnginePartitionsIsStale) refreshMatchingEnginePartitions

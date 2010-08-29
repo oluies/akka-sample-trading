@@ -10,20 +10,20 @@ import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.SupportedOrderbooksReq
 import org.samples.trading.domain.Rsp
 
-class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine], val threadPool: ExecutorService) 
+class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine]) 
     extends Actor with OrderReceiver {
   type ME = ActorMatchingEngine
   
-  override def scheduler = new SchedulerAdapter {
-      def execute(block: => Unit) =
-        threadPool.execute(new Runnable {
-          def run() { block }
-        })
-    }
-
+//  override def scheduler = new SchedulerAdapter {
+//      def execute(block: => Unit) =
+//        threadPool.execute(new Runnable {
+//          def run() { block }
+//        })
+//    }
+  
   def act() {
-    loop {
-      react {
+    while (true) {
+      receive {
         case order: Order => placeOrder(order)
         case "exit" => exit
         case unknown => println("Received unknown message: " + unknown)
@@ -31,6 +31,14 @@ class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine], val thr
     }
   }
 
+//  def act() {
+//    loop {
+//      react {
+//        case ...
+//      }
+//    }
+//  }
+  
   protected def placeOrder(order: Order) = {
     if (matchingEnginePartitionsIsStale) refreshMatchingEnginePartitions
     val matchingEngine = matchingEngineForOrderbook(order.orderbookSymbol)

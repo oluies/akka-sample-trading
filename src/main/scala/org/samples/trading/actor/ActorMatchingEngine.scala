@@ -11,20 +11,21 @@ import org.samples.trading.domain.Rsp
 import org.samples.trading.domain.SupportedOrderbooksReq
 
 
-class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook], val threadPool: ExecutorService) 
+class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook]) 
     extends Actor with MatchingEngine {
   var standby: Option[ActorMatchingEngine] = None
   
-  override def scheduler = new SchedulerAdapter {
-      def execute(block: => Unit) =
-        threadPool.execute(new Runnable {
-          def run() { block }
-        })
-    }
+//  override def scheduler = new SchedulerAdapter {
+//      def execute(block: => Unit) =
+//        threadPool.execute(new Runnable {
+//          def run() { block }
+//        })
+//    }
 
+  
   def act() {
-    loop {
-      react {
+    while (true) {
+      receive {
         case SupportedOrderbooksReq => reply(orderbooks)
         case order: Order =>
           handleOrder(order)
@@ -37,6 +38,14 @@ class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook], val
       }
     }
   }
+  
+//  def act() {
+//    loop {
+//      react {
+//        case ...
+//      }
+//    }
+//  }  
 
   def handleOrder(order: Order) {
     orderbooksMap(order.orderbookSymbol) match {

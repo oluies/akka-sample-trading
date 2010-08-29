@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>0.10.20100815</version>
+	<version>0.10</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
@@ -53,12 +53,15 @@
 				<version>2.5</version>
 				<configuration>
 					<forkMode>always</forkMode>
-					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=true -Dbenchmark=false</argLine>
+					<!-- scala actors thread pool can be configured with
+						-Dactors.corePoolSize=4 -Dactors.maxPoolSize=16
+					 -->
+					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=false</argLine>
 					<!-- 
 					<includes>
-						<include>**/AkkaHawtPerformanceTest.*</include>
+						<include>**/AkkaBang*Test.*</include>
 					</includes>
-					 -->
+					-->
 					<excludes>
 			            <exclude>**/AllBenchmarkTests.java</exclude>
 					</excludes>
@@ -191,7 +194,7 @@
 		<repository>
 		  <id>Akka</id>
 		  <name>Akka Maven2 Repository</name>
-		  <url>http://www.scalablesolutions.se/akka/repository/ </url>
+		  <url>http://www.scalablesolutions.se/akka/repository/</url>
 		</repository>
 		 
 		<repository>

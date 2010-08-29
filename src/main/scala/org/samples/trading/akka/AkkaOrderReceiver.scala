@@ -8,11 +8,12 @@ import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 import org.samples.trading.domain._
 
-class AkkaOrderReceiver(val matchingEngines: List[ActorRef], disp: MessageDispatcher)
+class AkkaOrderReceiver(val matchingEngines: List[ActorRef], disp: Option[MessageDispatcher])
     extends Actor with OrderReceiver {
   type ME = ActorRef
 
-  self.dispatcher = disp
+  if (disp.isDefined)
+    self.dispatcher = disp.get
 
   def receive = {
     case order: Order => placeOrder(order)
