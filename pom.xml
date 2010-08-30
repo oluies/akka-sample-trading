@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>0.10</version>
+	<version>0.10.20100830</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>

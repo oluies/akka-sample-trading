@@ -22,22 +22,14 @@ class ActorOrderReceiver(val matchingEngines: List[ActorMatchingEngine])
 //    }
   
   def act() {
-    while (true) {
-      receive {
+    loop {
+      react {
         case order: Order => placeOrder(order)
         case "exit" => exit
         case unknown => println("Received unknown message: " + unknown)
       }
     }
   }
-
-//  def act() {
-//    loop {
-//      react {
-//        case ...
-//      }
-//    }
-//  }
   
   protected def placeOrder(order: Order) = {
     if (matchingEnginePartitionsIsStale) refreshMatchingEnginePartitions

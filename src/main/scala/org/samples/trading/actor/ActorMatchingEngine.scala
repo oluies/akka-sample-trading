@@ -24,8 +24,8 @@ class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook])
 
   
   def act() {
-    while (true) {
-      receive {
+    loop {
+      react {
         case SupportedOrderbooksReq => reply(orderbooks)
         case order: Order =>
           handleOrder(order)
@@ -37,15 +37,7 @@ class ActorMatchingEngine(val meId: String, val orderbooks: List[Orderbook])
 
       }
     }
-  }
-  
-//  def act() {
-//    loop {
-//      react {
-//        case ...
-//      }
-//    }
-//  }  
+  }  
 
   def handleOrder(order: Order) {
     orderbooksMap(order.orderbookSymbol) match {
