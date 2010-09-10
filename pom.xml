@@ -4,11 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>0.10.20100830</version>
+	<version>1.0-SNAPSHOT.20100910</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
 		<scala.version>2.8.0</scala.version>
+		<akka.version>1.0-SNAPSHOT</akka.version>
 	</properties>
 	<build>
 		<plugins>
@@ -59,9 +60,10 @@
 					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=false</argLine>
 					<!-- 
 					<includes>
-						<include>**/AkkaBang*Test.*</include>
+						<include>**/AkkaPerformanceTest.*</include>
+						<include>**/AkkaBangPerformanceTest.*</include>
 					</includes>
-					-->
+					 -->
 					<excludes>
 			            <exclude>**/AllBenchmarkTests.java</exclude>
 					</excludes>
@@ -164,9 +166,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<artifactId>akka-core_2.8.0</artifactId>
+			<artifactId>akka-actor_2.8.0</artifactId>
 		    <groupId>se.scalablesolutions.akka</groupId>
-		    <version>0.10</version>
+		    <version>${akka.version}</version>
     	</dependency>
     	<dependency>
 			<groupId>log4j</groupId>
