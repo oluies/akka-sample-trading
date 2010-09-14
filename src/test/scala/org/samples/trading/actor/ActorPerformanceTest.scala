@@ -12,10 +12,11 @@ import scala.actors.threadpool._
 import org.samples.trading.domain._
 import org.samples.trading.common._
 
-class ActorPerformanceTest extends PerformanceTest {
+class ActorPerformanceTest extends BenchmarkScenarios // with OtherPerformanceScenarios 
+{
   type TS = ActorTradingSystem
   
-  val threadPool: ExecutorService = Executors.newFixedThreadPool(40)
+  val threadPool: ExecutorService = Executors.newFixedThreadPool(maxClients)
 
   override def createTradingSystem: TS = new ActorTradingSystem
 

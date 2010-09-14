@@ -12,10 +12,14 @@ runTests() {
 }
 
 # All tests with tx logging
-export BENCH_PROPS='-DuseTxLogFile=true -Dbenchmark=true'
+export BENCH_PROPS='-DuseTxLogFile=true -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false'
 runTests
 
 # All tests without tx logging
-export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true'
+export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false'
+runTests
+
+# All tests without tx logging, with DummyOrderbook
+export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true'
 runTests
 

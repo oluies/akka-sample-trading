@@ -19,6 +19,11 @@ trait PerformanceTest {
   def isBenchmark() = 
     System.getProperty("benchmark") == "true" 
   
+  def minClients() =
+    Integer.parseInt(System.getProperty("minClients", "1"));
+  
+  def maxClients() =
+    Integer.parseInt(System.getProperty("maxClients", "40"));
   
   var stat: DescriptiveStatistics = _
 
@@ -53,112 +58,11 @@ trait PerformanceTest {
     val ask = new Ask("A1", 100, 1000)
 
     val orderReceiver = tradingSystem.orderReceivers.head
-    for (i <- 1 to 10) {
+    val loopCount = if (isBenchmark) 1000 else 100;
+    for (i <- 1 to loopCount) {
       placeOrder(orderReceiver, bid)
       placeOrder(orderReceiver, ask)
     }
-  }
-
-
-  @Test
-  @Ignore
-  def simpleScenario {
-    val repeat = 300 * longRun
-    val numberOfClients = tradingSystem.orderReceivers.size
-
-    val bid = new Bid("A1", 100, 1000)
-    val ask = new Ask("A1", 100, 1000)
-    val orders = bid :: ask :: Nil
-
-    runScenario("simpleScenario", orders, repeat, numberOfClients, 0)
-  }
-
-  @Test def complexScenario1 = complexScenario(1)
-  @Test def complexScenario2 = complexScenario(2)
-  @Test def complexScenario4 = complexScenario(4)
-  @Test def complexScenario6 = complexScenario(6)
-  @Test def complexScenario8 = complexScenario(8)
-  @Test def complexScenario10 = complexScenario(10)
-  @Test def complexScenario20 = complexScenario(20)
-  @Test def complexScenario30 = complexScenario(30)
-  @Test def complexScenario40 = complexScenario(40)
-  @Ignore @Test def complexScenario60 = complexScenario(60)
-  @Ignore @Test def complexScenario80 = complexScenario(80)
-  @Ignore @Test def complexScenario100 = complexScenario(100)
-  @Ignore @Test def complexScenario200 = complexScenario(200)
-  @Ignore @Test def complexScenario300 = complexScenario(300)
-  @Ignore @Test def complexScenario400 = complexScenario(400)
-  
-
-  def complexScenario(numberOfClients: Int) {
-    val repeat = 500 * longRun / numberOfClients
-
-    val prefixes = "A" :: "B" :: "C" :: Nil
-    val askOrders = for{
-      s <- prefixes
-      i <- 1 to 5}
-      yield new Ask(s + i, 100 - i, 1000)
-    val bidOrders = for{
-      s <- prefixes
-      i <- 1 to 5}
-      yield new Bid(s + i, 100 - i, 1000)
-    val orders = askOrders ::: bidOrders
-
-    runScenario("benchmark", orders, repeat, numberOfClients, 0)
-  }
-
-  @Test
-  @Ignore
-  def manyOrderbooks {
-    val repeat = 2 * longRun
-    val numberOfClients = tradingSystem.orderReceivers.size
-
-    val orderbooks = tradingSystem.allOrderbookSymbols
-    val askOrders = for (o <- orderbooks) yield new Ask(o, 100, 1000)
-    val bidOrders = for (o <- orderbooks) yield new Bid(o, 100, 1000)
-    val orders = askOrders ::: bidOrders
-
-    runScenario("manyOrderbooks", orders, repeat, numberOfClients, 5)
-  }
-
-  @Test
-  @Ignore
-  def manyClients {
-    val repeat = 1 * longRun
-    val numberOfClients = tradingSystem.orderReceivers.size * 10
-
-    val orderbooks = tradingSystem.allOrderbookSymbols
-    val askOrders = for (o <- orderbooks) yield new Ask(o, 100, 1000)
-    val bidOrders = for (o <- orderbooks) yield new Bid(o, 100, 1000)
-    val orders = askOrders ::: bidOrders
-
-    runScenario("manyClients", orders, repeat, numberOfClients, 5)
-  }
-
-  @Test
-  @Ignore
-  def oneClient {
-    val repeat = 10000 * longRun
-    val numberOfClients = 1
-
-    val bid = new Bid("A1", 100, 1000)
-    val ask = new Ask("A1", 100, 1000)
-    val orders = bid :: ask :: Nil
-
-    runScenario("oneClient", orders, repeat, numberOfClients, 0)
-  }
-
-  @Test
-  @Ignore
-  def oneSlowClient {
-    val repeat = 300 * longRun
-    val numberOfClients = 1
-
-    val bid = new Bid("A1", 100, 1000)
-    val ask = new Ask("A1", 100, 1000)
-    val orders = bid :: ask :: Nil
-
-    runScenario("oneSlowClient", orders, repeat, numberOfClients, 5)
   }
 
   def logMeasurement(scenario: String, numberOfClients: Int, durationNs: Long, repeat: Int, totalNumberOfRequests: Int) {

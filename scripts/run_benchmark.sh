@@ -2,7 +2,7 @@
 
 TEST_CLASSES=$@
 #BENCH_PROPS can be defined outside of this script
-#export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true'
+#export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false'
 VMARGS='-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC'
 VMARGS="$VMARGS $BENCH_PROPS"
 

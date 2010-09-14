@@ -14,13 +14,14 @@ import se.scalablesolutions.akka.actor.Actor
 import se.scalablesolutions.akka.actor.Actor.actorOf
 import se.scalablesolutions.akka.dispatch.Dispatchers
 
-class AkkaPerformanceTest extends PerformanceTest {
+class AkkaPerformanceTest extends BenchmarkScenarios // with OtherPerformanceScenarios 
+{
   type TS = AkkaTradingSystem
   
   val clientDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
   clientDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
-   .setCorePoolSize(40)
-   .setMaxPoolSize(40)
+   .setCorePoolSize(maxClients)
+   .setMaxPoolSize(maxClients)
    .buildThreadPool
 
   override def createTradingSystem: TS = new AkkaTradingSystem

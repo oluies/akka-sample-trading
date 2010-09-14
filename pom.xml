@@ -57,7 +57,7 @@
 					<!-- scala actors thread pool can be configured with
 						-Dactors.corePoolSize=4 -Dactors.maxPoolSize=16
 					 -->
-					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=false</argLine>
+					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=false -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false</argLine>
 					<!-- 
 					<includes>
 						<include>**/AkkaPerformanceTest.*</include>

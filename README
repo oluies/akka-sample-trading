@@ -18,11 +18,17 @@ There is also a script for running all benchmark tests.
 You need to define JAVA_HOME for JDK6, if you don't have it as default.
 
 Benchmark options can be defined with variable:
-export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true'
+export BENCH_PROPS='-DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false'
 
 Better accuracy (running tests longer) is achieved if you define jvm parameter:
 -Dbenchmark=true
 
 By default the benchmark is run without transaction logging, you can use transaction logging by defining jvm parameter:
 -DuseTxLogFile=true
+
+By default the benchmark is run with 1 to 40 client threads, you can define another range with jvm parameters:
+-DminClients=2 -DmaxClients=6
+
+To push the message passing to the limits, the order matching logic can be turned off with jvm parameter:
+-DuseDummyOrderbook=true
 

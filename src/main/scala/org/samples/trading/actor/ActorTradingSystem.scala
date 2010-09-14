@@ -3,6 +3,7 @@ package org.samples.trading.actor
 import org.samples.trading.common._
 
 import org.samples.trading.domain.Orderbook
+import org.samples.trading.domain.OrderbookFactory
 import org.samples.trading.domain.StandbyTradeObserver
 import scala.actors.Actor
 import scala.actors.threadpool._
@@ -18,7 +19,7 @@ class ActorTradingSystem extends TradingSystem {
       yield {
         i = i + 1
         val me = createMatchingEngine("ME" + i, orderbooks)
-        val orderbooksCopy = orderbooks map (o => new Orderbook(o.symbol) with StandbyTradeObserver)
+        val orderbooksCopy = orderbooks map (o => OrderbookFactory.createOrderbook(o.symbol, true))
         val standbyOption =
           if (useStandByEngines) {
             val meStandby = createMatchingEngine("ME" + i + "s", orderbooksCopy)
