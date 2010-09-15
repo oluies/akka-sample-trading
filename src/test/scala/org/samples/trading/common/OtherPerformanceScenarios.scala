@@ -12,7 +12,7 @@ trait OtherPerformanceScenarios extends PerformanceTest {
 
   @Test
   def simpleScenario {
-    val repeat = 300 * longRun
+    val repeat = 300 * repeatFactor
     val numberOfClients = tradingSystem.orderReceivers.size
 
     val bid = new Bid("A1", 100, 1000)
@@ -24,7 +24,7 @@ trait OtherPerformanceScenarios extends PerformanceTest {
 
   @Test
   def manyOrderbooks {
-    val repeat = 2 * longRun
+    val repeat = 2 * repeatFactor
     val numberOfClients = tradingSystem.orderReceivers.size
 
     val orderbooks = tradingSystem.allOrderbookSymbols
@@ -37,7 +37,7 @@ trait OtherPerformanceScenarios extends PerformanceTest {
 
   @Test
   def manyClients {
-    val repeat = 1 * longRun
+    val repeat = 1 * repeatFactor
     val numberOfClients = tradingSystem.orderReceivers.size * 10
 
     val orderbooks = tradingSystem.allOrderbookSymbols
@@ -50,7 +50,7 @@ trait OtherPerformanceScenarios extends PerformanceTest {
 
   @Test
   def oneClient {
-    val repeat = 10000 * longRun
+    val repeat = 10000 * repeatFactor
     val numberOfClients = 1
 
     val bid = new Bid("A1", 100, 1000)
@@ -62,7 +62,7 @@ trait OtherPerformanceScenarios extends PerformanceTest {
 
   @Test
   def oneSlowClient {
-    val repeat = 300 * longRun
+    val repeat = 300 * repeatFactor
     val numberOfClients = 1
 
     val bid = new Bid("A1", 100, 1000)

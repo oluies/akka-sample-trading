@@ -11,19 +11,28 @@ import org.samples.trading.domain._
 trait PerformanceTest {
 
   //	jvm parameters
-  //	-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -Dbenchmark=true
-
-  // Use longRun for benchmark
-  val longRun = if (isBenchmark) 50 else 10;
+  //	-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC
   
+  var isWarm = false
+
   def isBenchmark() = 
     System.getProperty("benchmark") == "true" 
   
   def minClients() =
-    Integer.parseInt(System.getProperty("minClients", "1"));
+    System.getProperty("minClients", "1").toInt;
   
   def maxClients() =
-    Integer.parseInt(System.getProperty("maxClients", "40"));
+    System.getProperty("maxClients", "40").toInt;
+  
+  def repeatFactor() = {
+    val defaultRepeatFactor = if (isBenchmark) "50" else "10"
+    System.getProperty("repeatFactor", defaultRepeatFactor).toInt
+  }
+  
+  def warmupRepeatFactor() = {
+    val defaultRepeatFactor = if (isBenchmark) "100" else "10"
+    System.getProperty("warmupRepeatFactor", defaultRepeatFactor).toInt
+  }
   
   var stat: DescriptiveStatistics = _
 
@@ -58,11 +67,15 @@ trait PerformanceTest {
     val ask = new Ask("A1", 100, 1000)
 
     val orderReceiver = tradingSystem.orderReceivers.head
-    val loopCount = if (isBenchmark) 1000 else 100;
+    val loopCount =
+      if (isWarm) 1
+      else 10 * warmupRepeatFactor;
+    
     for (i <- 1 to loopCount) {
       placeOrder(orderReceiver, bid)
       placeOrder(orderReceiver, ask)
     }
+    isWarm = true
   }
 
   def logMeasurement(scenario: String, numberOfClients: Int, durationNs: Long, repeat: Int, totalNumberOfRequests: Int) {

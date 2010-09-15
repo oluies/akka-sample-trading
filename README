@@ -32,3 +32,11 @@ By default the benchmark is run with 1 to 40 client threads, you can define anot
 To push the message passing to the limits, the order matching logic can be turned off with jvm parameter:
 -DuseDummyOrderbook=true
 
+To control how long the tests are running you can define repeatFactor, default is 50 when benchmark=true:
+-DrepeatFactor=100
+
+To control the length of the warmup period you can define warmupRepeatFactor, default is 100 when benchmark=true:
+-DwarmupRepeatFactor=200
+
+
+

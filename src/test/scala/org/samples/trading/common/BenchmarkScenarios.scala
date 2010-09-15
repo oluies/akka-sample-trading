@@ -31,7 +31,7 @@ trait BenchmarkScenarios extends PerformanceTest {
     Assume.assumeTrue(numberOfClients >= minClients)
     Assume.assumeTrue(numberOfClients <= maxClients)
         
-    val repeat = 500 * longRun / numberOfClients
+    val repeat = 500 * repeatFactor / numberOfClients
 
     val prefixes = "A" :: "B" :: "C" :: Nil
     val askOrders = for{

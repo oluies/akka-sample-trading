@@ -48,7 +48,7 @@ class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp
   }
 
   override
-  def shutdown {
+  def postStop {
     txLog.close()
   }
 

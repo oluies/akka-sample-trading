@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>1.0-SNAPSHOT.20100910</version>
+	<version>1.0-SNAPSHOT.20100915</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
@@ -57,7 +57,7 @@
 					<!-- scala actors thread pool can be configured with
 						-Dactors.corePoolSize=4 -Dactors.maxPoolSize=16
 					 -->
-					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=false -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false</argLine>
+					<argLine>-server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=false -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true -DrepeatFactor=10 -DwarmupRepeatFactor=10</argLine>
 					<!-- 
 					<includes>
 						<include>**/AkkaPerformanceTest.*</include>
