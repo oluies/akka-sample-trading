@@ -2,6 +2,13 @@ Trading Sample with Scala and Akka.
 
 Including performance benchmark test described in blog: http://blog.jayway.com/2010/08/10/yet-another-akka-benchmark/
 
+=== Latest Results ===
+
+* 1.0-M1
+With order matching: http://goo.gl/EsUwr
+Without order matching: http://goo.gl/UOCd2
+Comparing with previous: http://goo.gl/eaoOC
+
 
 === How to run benchmark from distribution ===
 

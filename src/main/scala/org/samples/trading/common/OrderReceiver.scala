@@ -10,10 +10,10 @@ trait OrderReceiver {
 
   def refreshMatchingEnginePartitions {
     val m = Map() ++
-        (for{
-          me <- matchingEngines
-          o <- supportedOrderbooks(me)
-        } yield (o.symbol, Some(me)))
+      (for {
+        me <- matchingEngines
+        o <- supportedOrderbooks(me)
+      } yield (o.symbol, Some(me)))
 
     matchingEngineForOrderbook = m
     matchingEnginePartitionsIsStale = false

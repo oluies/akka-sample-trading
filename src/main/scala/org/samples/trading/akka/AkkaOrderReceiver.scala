@@ -2,14 +2,12 @@ package org.samples.trading.akka
 
 import org.samples.trading.common.OrderReceiver
 import se.scalablesolutions.akka.actor._
-import se.scalablesolutions.akka.actor.Actor._
-import se.scalablesolutions.akka.dispatch.Dispatchers
 import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 import org.samples.trading.domain._
 
 class AkkaOrderReceiver(val matchingEngines: List[ActorRef], disp: Option[MessageDispatcher])
-    extends Actor with OrderReceiver {
+  extends Actor with OrderReceiver {
   type ME = ActorRef
 
   if (disp.isDefined)
@@ -32,7 +30,7 @@ class AkkaOrderReceiver(val matchingEngines: List[ActorRef], disp: Option[Messag
     val matchingEngine = matchingEngineForOrderbook(order.orderbookSymbol)
     matchingEngine match {
       case Some(m) =>
-//        				println("receiver " + order)
+      //        				println("receiver " + order)
         m.forward(order)
       case None =>
         println("Unknown orderbook: " + order.orderbookSymbol)

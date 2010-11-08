@@ -1,10 +1,8 @@
 package org.samples.trading.akka
 
 import se.scalablesolutions.akka.actor._
-import se.scalablesolutions.akka.actor.Actor._
 import se.scalablesolutions.akka.dispatch.Future
 import se.scalablesolutions.akka.dispatch.FutureTimeoutException
-import se.scalablesolutions.akka.dispatch.Dispatchers
 import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 import org.samples.trading.common.MatchingEngine
@@ -28,7 +26,7 @@ class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp
   def handleOrder(order: Order) {
     orderbooksMap(order.orderbookSymbol) match {
       case Some(orderbook) =>
-        //				println(meId + " " + order)
+      //				println(meId + " " + order)
 
         val pendingStandbyReply: Option[Future[_]] = standby match {
           case Some(s) => Some(s !!! order)
@@ -53,7 +51,8 @@ class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp
   }
 
   def waitForStandby(pendingStandbyFuture: Future[_]) {
-    try {
+    try
+    {
       pendingStandbyFuture.await
     } catch {
       case e: FutureTimeoutException => println("### standby timeout: " + e)

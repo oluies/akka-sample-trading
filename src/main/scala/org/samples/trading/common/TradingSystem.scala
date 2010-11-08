@@ -3,8 +3,6 @@ package org.samples.trading.common
 import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.OrderbookFactory
 import org.samples.trading.domain.OrderbookRepository
-import org.samples.trading.domain.SimpleTradeObserver
-
 
 trait TradingSystem {
   type ME
@@ -17,6 +15,7 @@ trait TradingSystem {
     yield groupOfSymbols map (s => OrderbookFactory.createOrderbook(s, false))
 
   def useStandByEngines: Boolean = true
+
   // pairs of primary-standby matching engines
   lazy val matchingEngines: Map[ME, Option[ME]] = createMatchingEngines
 

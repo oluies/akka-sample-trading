@@ -1,11 +1,6 @@
 package org.samples.trading.common
 
-import java.util.Random
 import org.junit._
-import Assert._
-import org.apache.commons.math.stat.descriptive.DescriptiveStatistics
-import org.apache.commons.math.stat.descriptive.SynchronizedDescriptiveStatistics
-
 import org.samples.trading.domain._
 
 trait OtherPerformanceScenarios extends PerformanceTest {

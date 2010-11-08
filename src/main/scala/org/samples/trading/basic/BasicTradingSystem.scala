@@ -3,7 +3,6 @@ package org.samples.trading.basic
 import org.samples.trading.common._
 import org.samples.trading.domain.OrderbookFactory
 import org.samples.trading.domain.Orderbook
-import org.samples.trading.domain.StandbyTradeObserver
 
 class BasicTradingSystem extends TradingSystem {
   type ME = BasicMatchingEngine
@@ -24,7 +23,7 @@ class BasicTradingSystem extends TradingSystem {
           } else {
             None
           }
-  
+
         (me, standbyOption)
       }
 

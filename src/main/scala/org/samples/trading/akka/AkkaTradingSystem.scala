@@ -4,12 +4,8 @@ import org.samples.trading.common._
 
 import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.OrderbookFactory
-import org.samples.trading.domain.StandbyTradeObserver
-import se.scalablesolutions.akka.actor.Actor
 import se.scalablesolutions.akka.actor.Actor._
 import se.scalablesolutions.akka.actor.ActorRef
-import se.scalablesolutions.akka.actor.ActorRegistry
-import se.scalablesolutions.akka.dispatch.Dispatchers
 import se.scalablesolutions.akka.dispatch.MessageDispatcher
 
 class AkkaTradingSystem extends TradingSystem {
@@ -18,13 +14,15 @@ class AkkaTradingSystem extends TradingSystem {
 
   val orDispatcher = createOrderReceiverDispatcher
   val meDispatcher = createMatchingEngineDispatcher
-    
+
   // by default we use default-dispatcher that is defined in akka.conf
-  def createOrderReceiverDispatcher: Option[MessageDispatcher] = None  
-  
+
+  def createOrderReceiverDispatcher: Option[MessageDispatcher] = None
+
   // by default we use default-dispatcher that is defined in akka.conf
+
   def createMatchingEngineDispatcher: Option[MessageDispatcher] = None
-  
+
   var matchingEngineForOrderbook: Map[String, Option[ActorRef]] = Map()
 
   override def createMatchingEngines = {
@@ -43,22 +41,22 @@ class AkkaTradingSystem extends TradingSystem {
           } else {
             None
           }
-  
+
         (me, standbyOption)
       }
 
     Map() ++ pairs;
   }
-  
-  def createMatchingEngine(meId: String, orderbooks: List[Orderbook]) = 
+
+  def createMatchingEngine(meId: String, orderbooks: List[Orderbook]) =
     actorOf(new AkkaMatchingEngine(meId, orderbooks, meDispatcher))
 
   override def createOrderReceivers: List[ActorRef] = {
     val primaryMatchingEngines = matchingEngines.map(pair => pair._1).toList
     (1 to 10).toList map (i => createOrderReceiver(primaryMatchingEngines))
   }
-  
-  def createOrderReceiver(matchingEngines: List[ActorRef]) = 
+
+  def createOrderReceiver(matchingEngines: List[ActorRef]) =
     actorOf(new AkkaOrderReceiver(matchingEngines, orDispatcher))
 
 

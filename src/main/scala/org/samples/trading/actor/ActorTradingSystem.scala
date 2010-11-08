@@ -4,14 +4,10 @@ import org.samples.trading.common._
 
 import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.OrderbookFactory
-import org.samples.trading.domain.StandbyTradeObserver
-import scala.actors.Actor
-import scala.actors.threadpool._
-
 class ActorTradingSystem extends TradingSystem {
   type ME = ActorMatchingEngine
   type OR = ActorOrderReceiver
-  
+
   override def createMatchingEngines = {
     var i = 0
     val pairs =
@@ -27,13 +23,13 @@ class ActorTradingSystem extends TradingSystem {
           } else {
             None
           }
-  
+
         (me, standbyOption)
       }
 
     Map() ++ pairs;
   }
-  
+
   def createMatchingEngine(meId: String, orderbooks: List[Orderbook]) =
     new ActorMatchingEngine(meId, orderbooks)
 
@@ -41,7 +37,7 @@ class ActorTradingSystem extends TradingSystem {
     val primaryMatchingEngines = matchingEngines.map(pair => pair._1).toList
     (1 to 10).toList map (i => createOrderReceiver(primaryMatchingEngines))
   }
-  
+
   def createOrderReceiver(matchingEngines: List[ActorMatchingEngine]) =
     new ActorOrderReceiver(matchingEngines)
 

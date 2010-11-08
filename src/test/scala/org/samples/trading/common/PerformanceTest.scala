@@ -33,13 +33,17 @@ trait PerformanceTest {
     val defaultRepeatFactor = if (isBenchmark) "100" else "10"
     System.getProperty("warmupRepeatFactor", defaultRepeatFactor).toInt
   }
+
+  def randomSeed() = {
+    System.getProperty("randomSeed", "0").toInt
+  }
   
   var stat: DescriptiveStatistics = _
 
   type TS <: TradingSystem
 
   var tradingSystem: TS = _
-  val random: Random = new Random()
+  val random: Random = new Random(randomSeed)
 
   def createTradingSystem: TS
 
