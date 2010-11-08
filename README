@@ -2,6 +2,7 @@ Trading Sample with Scala and Akka.
 
 Including performance benchmark test described in blog: http://blog.jayway.com/2010/08/10/yet-another-akka-benchmark/
 
+
 === How to run benchmark from distribution ===
 
 Download and unzip distribution assembly from http://github.com/patriknw/akka-sample-trading/downloads
