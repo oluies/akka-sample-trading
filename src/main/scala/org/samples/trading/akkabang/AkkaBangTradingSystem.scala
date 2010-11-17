@@ -2,8 +2,8 @@ package org.samples.trading.akkabang
 
 import org.samples.trading.akka._
 import org.samples.trading.domain.Orderbook
-import se.scalablesolutions.akka.actor.Actor._
-import se.scalablesolutions.akka.actor.ActorRef
+import akka.actor.Actor._
+import akka.actor.ActorRef
 
 class AkkaBangTradingSystem extends AkkaTradingSystem {
 

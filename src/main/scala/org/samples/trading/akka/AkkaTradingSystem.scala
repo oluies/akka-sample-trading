@@ -4,9 +4,9 @@ import org.samples.trading.common._
 
 import org.samples.trading.domain.Orderbook
 import org.samples.trading.domain.OrderbookFactory
-import se.scalablesolutions.akka.actor.Actor._
-import se.scalablesolutions.akka.actor.ActorRef
-import se.scalablesolutions.akka.dispatch.MessageDispatcher
+import akka.actor.Actor._
+import akka.actor.ActorRef
+import akka.dispatch.MessageDispatcher
 
 class AkkaTradingSystem extends TradingSystem {
   type ME = ActorRef

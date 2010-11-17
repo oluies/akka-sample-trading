@@ -1,0 +1,1138 @@
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false org.samples.trading.actor.ActorPerformanceTest
+JUnit version 4.6
+.==========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+--------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+-------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+--------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+ActorPerformanceTest.benchmark	6	15623	383	107	189	317	495	833	48	749880
+--------------------------------------------------------------------------------------------------------------------------
+.===========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+---------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+ActorPerformanceTest.benchmark	6	15623	383	107	189	317	495	833	48	749880
+ActorPerformanceTest.benchmark	8	16488	484	114	232	402	639	1069	45	750000
+---------------------------------------------------------------------------------------------------------------------------
+.============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+ActorPerformanceTest.benchmark	6	15623	383	107	189	317	495	833	48	749880
+ActorPerformanceTest.benchmark	8	16488	484	114	232	402	639	1069	45	750000
+ActorPerformanceTest.benchmark	10	16795	594	121	270	489	799	1343	45	750000
+----------------------------------------------------------------------------------------------------------------------------
+.==============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+ActorPerformanceTest.benchmark	6	15623	383	107	189	317	495	833	48	749880
+ActorPerformanceTest.benchmark	8	16488	484	114	232	402	639	1069	45	750000
+ActorPerformanceTest.benchmark	10	16795	594	121	270	489	799	1343	45	750000
+ActorPerformanceTest.benchmark	20	16501	1210	154	462	982	1712	2934	45	750000
+------------------------------------------------------------------------------------------------------------------------------
+.===============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+ActorPerformanceTest.benchmark	6	15623	383	107	189	317	495	833	48	749880
+ActorPerformanceTest.benchmark	8	16488	484	114	232	402	639	1069	45	750000
+ActorPerformanceTest.benchmark	10	16795	594	121	270	489	799	1343	45	750000
+ActorPerformanceTest.benchmark	20	16501	1210	154	462	982	1712	2934	45	750000
+ActorPerformanceTest.benchmark	30	16932	1769	188	675	1451	2538	4307	44	749700
+-------------------------------------------------------------------------------------------------------------------------------
+.===============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3810	262	186	231	258	283	335	197	750000
+ActorPerformanceTest.benchmark	2	8641	230	115	164	219	271	355	87	750000
+ActorPerformanceTest.benchmark	4	14282	279	100	149	231	351	580	53	750000
+ActorPerformanceTest.benchmark	6	15623	383	107	189	317	495	833	48	749880
+ActorPerformanceTest.benchmark	8	16488	484	114	232	402	639	1069	45	750000
+ActorPerformanceTest.benchmark	10	16795	594	121	270	489	799	1343	45	750000
+ActorPerformanceTest.benchmark	20	16501	1210	154	462	982	1712	2934	45	750000
+ActorPerformanceTest.benchmark	30	16932	1769	188	675	1451	2538	4307	44	749700
+ActorPerformanceTest.benchmark	40	16910	2363	208	801	1924	3489	5845	44	750000
+-------------------------------------------------------------------------------------------------------------------------------
+.......
+Time: 624.395
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false org.samples.trading.akka.AkkaPerformanceTest
+JUnit version 4.6
+.20:55:20,074 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+20:55:20,074 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+20:55:20,074 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+20:55:20,075 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+20:55:20,075 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+20:55:20,075 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/lib/akka-sample-trading-1.0-20111115-SNAPSHOT.jar!/logback.xml]
+20:55:20,232 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+20:55:20,366 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+20:55:20,369 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+20:55:20,530 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+20:55:20,533 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+20:55:20,609 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+20:55:20,612 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [R]
+20:55:20,615 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+20:55:20,615 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+20:55:20,618 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+20:55:20,624 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+20:55:20,625 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern ./logs/akka.log.%d{yyyy-MM-dd-HH} for the active file
+20:55:20,640 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern './logs/akka.log.%d{yyyy-MM-dd-HH}'.
+20:55:20,640 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+20:55:20,643 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Mon Nov 15 20:55:20 CET 2010
+20:55:20,644 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - Active log file name: ./logs/akka.log
+20:55:20,644 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - File property is set to [./logs/akka.log]
+20:55:20,645 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [se.scalablesolutions] to DEBUG
+20:55:20,645 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [se.scalablesolutions] to true
+20:55:20,645 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+20:55:20,645 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [R] to Logger[ROOT]
+
+===================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+-------------------------------------------------------------------------------------------------------------------
+.===================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+-------------------------------------------------------------------------------------------------------------------
+.====================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+--------------------------------------------------------------------------------------------------------------------
+.=====================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+---------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+AkkaPerformanceTest.benchmark	6	66735	89	39	53	72	102	170	11	749880
+---------------------------------------------------------------------------------------------------------------------
+.======================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+AkkaPerformanceTest.benchmark	6	66735	89	39	53	72	102	170	11	749880
+AkkaPerformanceTest.benchmark	8	71954	110	42	62	90	132	214	10	750000
+----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+AkkaPerformanceTest.benchmark	6	66735	89	39	53	72	102	170	11	749880
+AkkaPerformanceTest.benchmark	8	71954	110	42	62	90	132	214	10	750000
+AkkaPerformanceTest.benchmark	10	72777	136	46	73	113	169	271	10	750000
+------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+AkkaPerformanceTest.benchmark	6	66735	89	39	53	72	102	170	11	749880
+AkkaPerformanceTest.benchmark	8	71954	110	42	62	90	132	214	10	750000
+AkkaPerformanceTest.benchmark	10	72777	136	46	73	113	169	271	10	750000
+AkkaPerformanceTest.benchmark	20	70257	284	59	131	234	373	599	11	750000
+-------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+AkkaPerformanceTest.benchmark	6	66735	89	39	53	72	102	170	11	749880
+AkkaPerformanceTest.benchmark	8	71954	110	42	62	90	132	214	10	750000
+AkkaPerformanceTest.benchmark	10	72777	136	46	73	113	169	271	10	750000
+AkkaPerformanceTest.benchmark	20	70257	284	59	131	234	373	599	11	750000
+AkkaPerformanceTest.benchmark	30	67654	442	72	197	372	600	964	11	749700
+-------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	23000	43	30	35	39	43	77	33	750000
+AkkaPerformanceTest.benchmark	2	36580	54	33	43	49	56	82	21	750000
+AkkaPerformanceTest.benchmark	4	54144	73	36	47	58	80	141	14	750000
+AkkaPerformanceTest.benchmark	6	66735	89	39	53	72	102	170	11	749880
+AkkaPerformanceTest.benchmark	8	71954	110	42	62	90	132	214	10	750000
+AkkaPerformanceTest.benchmark	10	72777	136	46	73	113	169	271	10	750000
+AkkaPerformanceTest.benchmark	20	70257	284	59	131	234	373	599	11	750000
+AkkaPerformanceTest.benchmark	30	67654	442	72	197	372	600	964	11	749700
+AkkaPerformanceTest.benchmark	40	64366	620	85	273	523	845	1417	12	750000
+--------------------------------------------------------------------------------------------------------------------------
+.......
+Time: 140.727
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false org.samples.trading.actorbang.ActorBangPerformanceTest
+JUnit version 4.6
+..========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+ActorBangPerformanceTest.benchmark	6	101811	58	25	32	42	58	108	7	749880
+-------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+ActorBangPerformanceTest.benchmark	6	101811	58	25	32	42	58	108	7	749880
+ActorBangPerformanceTest.benchmark	8	108698	73	27	36	51	76	155	7	750000
+-------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+ActorBangPerformanceTest.benchmark	6	101811	58	25	32	42	58	108	7	749880
+ActorBangPerformanceTest.benchmark	8	108698	73	27	36	51	76	155	7	750000
+ActorBangPerformanceTest.benchmark	10	110162	90	28	41	63	99	206	7	750000
+--------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+ActorBangPerformanceTest.benchmark	6	101811	58	25	32	42	58	108	7	749880
+ActorBangPerformanceTest.benchmark	8	108698	73	27	36	51	76	155	7	750000
+ActorBangPerformanceTest.benchmark	10	110162	90	28	41	63	99	206	7	750000
+ActorBangPerformanceTest.benchmark	20	106173	187	35	70	135	232	422	7	750000
+-----------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+ActorBangPerformanceTest.benchmark	6	101811	58	25	32	42	58	108	7	749880
+ActorBangPerformanceTest.benchmark	8	108698	73	27	36	51	76	155	7	750000
+ActorBangPerformanceTest.benchmark	10	110162	90	28	41	63	99	206	7	750000
+ActorBangPerformanceTest.benchmark	20	106173	187	35	70	135	232	422	7	750000
+ActorBangPerformanceTest.benchmark	30	98513	303	41	107	224	388	669	8	749700
+-----------------------------------------------------------------------------------------------------------------------------
+.==============================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13378	74	40	66	77	83	93	56	750000
+ActorBangPerformanceTest.benchmark	2	34899	56	25	36	47	61	88	21	750000
+ActorBangPerformanceTest.benchmark	4	78414	49	24	30	38	52	89	10	750000
+ActorBangPerformanceTest.benchmark	6	101811	58	25	32	42	58	108	7	749880
+ActorBangPerformanceTest.benchmark	8	108698	73	27	36	51	76	155	7	750000
+ActorBangPerformanceTest.benchmark	10	110162	90	28	41	63	99	206	7	750000
+ActorBangPerformanceTest.benchmark	20	106173	187	35	70	135	232	422	7	750000
+ActorBangPerformanceTest.benchmark	30	98513	303	41	107	224	388	669	8	749700
+ActorBangPerformanceTest.benchmark	40	84165	473	49	157	343	598	1051	9	750000
+------------------------------------------------------------------------------------------------------------------------------
+......
+Time: 140.428
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false org.samples.trading.akkabang.AkkaBangPerformanceTest
+JUnit version 4.6
+.21:00:01,738 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:00:01,738 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+21:00:01,738 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:00:01,739 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+21:00:01,739 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:00:01,739 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/lib/akka-sample-trading-1.0-20111115-SNAPSHOT.jar!/logback.xml]
+21:00:01,798 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:00:01,804 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:00:01,809 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+21:00:01,828 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:00:01,829 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:00:01,875 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:00:01,878 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [R]
+21:00:01,882 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:00:01,882 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:00:01,886 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+21:00:01,891 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+21:00:01,892 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern ./logs/akka.log.%d{yyyy-MM-dd-HH} for the active file
+21:00:01,896 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern './logs/akka.log.%d{yyyy-MM-dd-HH}'.
+21:00:01,896 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+21:00:01,900 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Mon Nov 15 20:57:27 CET 2010
+21:00:01,900 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - Active log file name: ./logs/akka.log
+21:00:01,900 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - File property is set to [./logs/akka.log]
+21:00:01,901 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [se.scalablesolutions] to DEBUG
+21:00:01,901 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [se.scalablesolutions] to true
+21:00:01,901 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+21:00:01,901 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [R] to Logger[ROOT]
+
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+-----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+------------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+-----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+AkkaBangPerformanceTest.benchmark	6	124891	47	22	30	37	46	113	6	749880
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+AkkaBangPerformanceTest.benchmark	6	124891	47	22	30	37	46	113	6	749880
+AkkaBangPerformanceTest.benchmark	8	138119	57	26	36	46	59	100	5	750000
+------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+AkkaBangPerformanceTest.benchmark	6	124891	47	22	30	37	46	113	6	749880
+AkkaBangPerformanceTest.benchmark	8	138119	57	26	36	46	59	100	5	750000
+AkkaBangPerformanceTest.benchmark	10	149348	66	29	41	55	74	110	5	750000
+-------------------------------------------------------------------------------------------------------------------------
+.============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+AkkaBangPerformanceTest.benchmark	6	124891	47	22	30	37	46	113	6	749880
+AkkaBangPerformanceTest.benchmark	8	138119	57	26	36	46	59	100	5	750000
+AkkaBangPerformanceTest.benchmark	10	149348	66	29	41	55	74	110	5	750000
+AkkaBangPerformanceTest.benchmark	20	148892	133	40	68	107	165	251	5	750000
+----------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+AkkaBangPerformanceTest.benchmark	6	124891	47	22	30	37	46	113	6	749880
+AkkaBangPerformanceTest.benchmark	8	138119	57	26	36	46	59	100	5	750000
+AkkaBangPerformanceTest.benchmark	10	149348	66	29	41	55	74	110	5	750000
+AkkaBangPerformanceTest.benchmark	20	148892	133	40	68	107	165	251	5	750000
+AkkaBangPerformanceTest.benchmark	30	137752	216	53	106	171	265	464	5	749700
+-----------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	33224	30	17	22	26	31	55	23	750000
+AkkaBangPerformanceTest.benchmark	2	46540	42	13	22	29	39	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	95922	41	17	24	29	37	121	8	750000
+AkkaBangPerformanceTest.benchmark	6	124891	47	22	30	37	46	113	6	749880
+AkkaBangPerformanceTest.benchmark	8	138119	57	26	36	46	59	100	5	750000
+AkkaBangPerformanceTest.benchmark	10	149348	66	29	41	55	74	110	5	750000
+AkkaBangPerformanceTest.benchmark	20	148892	133	40	68	107	165	251	5	750000
+AkkaBangPerformanceTest.benchmark	30	137752	216	53	106	171	265	464	5	749700
+AkkaBangPerformanceTest.benchmark	40	123066	323	72	160	256	386	743	6	750000
+-----------------------------------------------------------------------------------------------------------------------------
+......
+Time: 86.872
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=false org.samples.trading.akkahawt.AkkaHawtPerformanceTest
+JUnit version 4.6
+.21:01:28,892 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:01:28,892 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+21:01:28,892 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:01:28,893 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+21:01:28,893 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:01:28,893 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/lib/akka-sample-trading-1.0-20111115-SNAPSHOT.jar!/logback.xml]
+21:01:28,953 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:01:28,959 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:01:28,962 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+21:01:28,978 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:01:28,979 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:01:29,020 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:01:29,022 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [R]
+21:01:29,026 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:01:29,026 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:01:29,029 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+21:01:29,035 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+21:01:29,036 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern ./logs/akka.log.%d{yyyy-MM-dd-HH} for the active file
+21:01:29,040 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern './logs/akka.log.%d{yyyy-MM-dd-HH}'.
+21:01:29,040 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+21:01:29,046 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Mon Nov 15 21:01:21 CET 2010
+21:01:29,047 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - Active log file name: ./logs/akka.log
+21:01:29,047 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - File property is set to [./logs/akka.log]
+21:01:29,049 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [se.scalablesolutions] to DEBUG
+21:01:29,049 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [se.scalablesolutions] to true
+21:01:29,049 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+21:01:29,049 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [R] to Logger[ROOT]
+
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+AkkaHawtPerformanceTest.benchmark	6	160663	37	22	28	34	40	52	5	749880
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+AkkaHawtPerformanceTest.benchmark	6	160663	37	22	28	34	40	52	5	749880
+AkkaHawtPerformanceTest.benchmark	8	191450	41	24	31	37	44	59	4	750000
+-----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+AkkaHawtPerformanceTest.benchmark	6	160663	37	22	28	34	40	52	5	749880
+AkkaHawtPerformanceTest.benchmark	8	191450	41	24	31	37	44	59	4	750000
+AkkaHawtPerformanceTest.benchmark	10	208455	47	26	34	42	51	68	4	750000
+------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+AkkaHawtPerformanceTest.benchmark	6	160663	37	22	28	34	40	52	5	749880
+AkkaHawtPerformanceTest.benchmark	8	191450	41	24	31	37	44	59	4	750000
+AkkaHawtPerformanceTest.benchmark	10	208455	47	26	34	42	51	68	4	750000
+AkkaHawtPerformanceTest.benchmark	20	226882	87	32	48	67	97	158	3	750000
+-------------------------------------------------------------------------------------------------------------------------
+.============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+AkkaHawtPerformanceTest.benchmark	6	160663	37	22	28	34	40	52	5	749880
+AkkaHawtPerformanceTest.benchmark	8	191450	41	24	31	37	44	59	4	750000
+AkkaHawtPerformanceTest.benchmark	10	208455	47	26	34	42	51	68	4	750000
+AkkaHawtPerformanceTest.benchmark	20	226882	87	32	48	67	97	158	3	750000
+AkkaHawtPerformanceTest.benchmark	30	187716	158	35	59	109	197	340	4	749700
+----------------------------------------------------------------------------------------------------------------------------
+.============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	31875	31	22	28	30	34	37	24	750000
+AkkaHawtPerformanceTest.benchmark	2	61559	32	23	29	31	34	39	12	750000
+AkkaHawtPerformanceTest.benchmark	4	112561	35	22	28	33	38	47	7	750000
+AkkaHawtPerformanceTest.benchmark	6	160663	37	22	28	34	40	52	5	749880
+AkkaHawtPerformanceTest.benchmark	8	191450	41	24	31	37	44	59	4	750000
+AkkaHawtPerformanceTest.benchmark	10	208455	47	26	34	42	51	68	4	750000
+AkkaHawtPerformanceTest.benchmark	20	226882	87	32	48	67	97	158	3	750000
+AkkaHawtPerformanceTest.benchmark	30	187716	158	35	59	109	197	340	4	749700
+AkkaHawtPerformanceTest.benchmark	40	166090	238	38	74	160	290	541	5	750000
+----------------------------------------------------------------------------------------------------------------------------
+......
+Time: 73.554
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true org.samples.trading.actor.ActorPerformanceTest
+JUnit version 4.6
+.==========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+--------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+-------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+--------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+ActorPerformanceTest.benchmark	6	15813	378	107	189	316	491	813	47	749880
+--------------------------------------------------------------------------------------------------------------------------
+.===========================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+---------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+ActorPerformanceTest.benchmark	6	15813	378	107	189	316	491	813	47	749880
+ActorPerformanceTest.benchmark	8	16503	484	115	233	401	640	1066	45	750000
+---------------------------------------------------------------------------------------------------------------------------
+.============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+ActorPerformanceTest.benchmark	6	15813	378	107	189	316	491	813	47	749880
+ActorPerformanceTest.benchmark	8	16503	484	115	233	401	640	1066	45	750000
+ActorPerformanceTest.benchmark	10	16883	591	122	271	489	796	1337	44	750000
+----------------------------------------------------------------------------------------------------------------------------
+.==============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+ActorPerformanceTest.benchmark	6	15813	378	107	189	316	491	813	47	749880
+ActorPerformanceTest.benchmark	8	16503	484	115	233	401	640	1066	45	750000
+ActorPerformanceTest.benchmark	10	16883	591	122	271	489	796	1337	44	750000
+ActorPerformanceTest.benchmark	20	17504	1141	153	461	937	1606	2723	43	750000
+------------------------------------------------------------------------------------------------------------------------------
+.===============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+ActorPerformanceTest.benchmark	6	15813	378	107	189	316	491	813	47	749880
+ActorPerformanceTest.benchmark	8	16503	484	115	233	401	640	1066	45	750000
+ActorPerformanceTest.benchmark	10	16883	591	122	271	489	796	1337	44	750000
+ActorPerformanceTest.benchmark	20	17504	1141	153	461	937	1606	2723	43	750000
+ActorPerformanceTest.benchmark	30	17373	1725	179	644	1412	2493	4191	43	749700
+-------------------------------------------------------------------------------------------------------------------------------
+.===============================================================================================================================
+Scenario                      	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                              	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------------
+ActorPerformanceTest.benchmark	1	3773	264	192	236	260	283	336	199	750000
+ActorPerformanceTest.benchmark	2	8403	237	120	169	225	279	367	89	750000
+ActorPerformanceTest.benchmark	4	14284	279	102	151	233	352	576	53	750000
+ActorPerformanceTest.benchmark	6	15813	378	107	189	316	491	813	47	749880
+ActorPerformanceTest.benchmark	8	16503	484	115	233	401	640	1066	45	750000
+ActorPerformanceTest.benchmark	10	16883	591	122	271	489	796	1337	44	750000
+ActorPerformanceTest.benchmark	20	17504	1141	153	461	937	1606	2723	43	750000
+ActorPerformanceTest.benchmark	30	17373	1725	179	644	1412	2493	4191	43	749700
+ActorPerformanceTest.benchmark	40	17247	2316	193	761	1794	3489	5849	43	750000
+-------------------------------------------------------------------------------------------------------------------------------
+.......
+Time: 623.323
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true org.samples.trading.akka.AkkaPerformanceTest
+JUnit version 4.6
+.21:13:06,647 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:13:06,647 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+21:13:06,648 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:13:06,648 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+21:13:06,648 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:13:06,648 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/lib/akka-sample-trading-1.0-20111115-SNAPSHOT.jar!/logback.xml]
+21:13:06,722 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:13:06,728 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:13:06,731 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+21:13:06,750 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:13:06,751 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:13:06,799 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:13:06,803 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [R]
+21:13:06,808 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:13:06,808 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:13:06,812 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+21:13:06,818 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+21:13:06,819 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern ./logs/akka.log.%d{yyyy-MM-dd-HH} for the active file
+21:13:06,823 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern './logs/akka.log.%d{yyyy-MM-dd-HH}'.
+21:13:06,823 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+21:13:06,827 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Mon Nov 15 21:02:42 CET 2010
+21:13:06,828 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - Active log file name: ./logs/akka.log
+21:13:06,828 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - File property is set to [./logs/akka.log]
+21:13:06,829 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [se.scalablesolutions] to DEBUG
+21:13:06,829 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [se.scalablesolutions] to true
+21:13:06,829 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+21:13:06,829 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [R] to Logger[ROOT]
+
+===================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+-------------------------------------------------------------------------------------------------------------------
+.===================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+-------------------------------------------------------------------------------------------------------------------
+.====================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+--------------------------------------------------------------------------------------------------------------------
+.====================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+AkkaPerformanceTest.benchmark	6	71876	83	38	51	68	96	160	10	749880
+--------------------------------------------------------------------------------------------------------------------
+.======================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+AkkaPerformanceTest.benchmark	6	71876	83	38	51	68	96	160	10	749880
+AkkaPerformanceTest.benchmark	8	77568	102	41	59	85	123	199	10	750000
+----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+AkkaPerformanceTest.benchmark	6	71876	83	38	51	68	96	160	10	749880
+AkkaPerformanceTest.benchmark	8	77568	102	41	59	85	123	199	10	750000
+AkkaPerformanceTest.benchmark	10	78095	127	43	67	104	155	252	10	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+AkkaPerformanceTest.benchmark	6	71876	83	38	51	68	96	160	10	749880
+AkkaPerformanceTest.benchmark	8	77568	102	41	59	85	123	199	10	750000
+AkkaPerformanceTest.benchmark	10	78095	127	43	67	104	155	252	10	750000
+AkkaPerformanceTest.benchmark	20	83545	238	52	109	199	322	507	9	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+AkkaPerformanceTest.benchmark	6	71876	83	38	51	68	96	160	10	749880
+AkkaPerformanceTest.benchmark	8	77568	102	41	59	85	123	199	10	750000
+AkkaPerformanceTest.benchmark	10	78095	127	43	67	104	155	252	10	750000
+AkkaPerformanceTest.benchmark	20	83545	238	52	109	199	322	507	9	750000
+AkkaPerformanceTest.benchmark	30	85177	351	60	157	297	477	769	9	749700
+------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                     	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                             	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+AkkaPerformanceTest.benchmark	1	22915	43	29	35	39	43	74	33	750000
+AkkaPerformanceTest.benchmark	2	37536	53	32	42	48	56	78	20	750000
+AkkaPerformanceTest.benchmark	4	57240	69	35	46	56	76	136	13	750000
+AkkaPerformanceTest.benchmark	6	71876	83	38	51	68	96	160	10	749880
+AkkaPerformanceTest.benchmark	8	77568	102	41	59	85	123	199	10	750000
+AkkaPerformanceTest.benchmark	10	78095	127	43	67	104	155	252	10	750000
+AkkaPerformanceTest.benchmark	20	83545	238	52	109	199	322	507	9	750000
+AkkaPerformanceTest.benchmark	30	85177	351	60	157	297	477	769	9	749700
+AkkaPerformanceTest.benchmark	40	85976	464	66	192	389	657	1047	9	750000
+-------------------------------------------------------------------------------------------------------------------------
+.......
+Time: 130.022
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true org.samples.trading.actorbang.ActorBangPerformanceTest
+JUnit version 4.6
+..========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+------------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+ActorBangPerformanceTest.benchmark	6	109688	54	24	30	39	54	100	7	749880
+-------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+ActorBangPerformanceTest.benchmark	6	109688	54	24	30	39	54	100	7	749880
+ActorBangPerformanceTest.benchmark	8	113431	69	25	33	47	70	159	7	750000
+-------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+ActorBangPerformanceTest.benchmark	6	109688	54	24	30	39	54	100	7	749880
+ActorBangPerformanceTest.benchmark	8	113431	69	25	33	47	70	159	7	750000
+ActorBangPerformanceTest.benchmark	10	117975	84	26	37	56	89	215	6	750000
+--------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+ActorBangPerformanceTest.benchmark	6	109688	54	24	30	39	54	100	7	749880
+ActorBangPerformanceTest.benchmark	8	113431	69	25	33	47	70	159	7	750000
+ActorBangPerformanceTest.benchmark	10	117975	84	26	37	56	89	215	6	750000
+ActorBangPerformanceTest.benchmark	20	122861	161	29	55	109	203	416	6	750000
+-----------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+ActorBangPerformanceTest.benchmark	6	109688	54	24	30	39	54	100	7	749880
+ActorBangPerformanceTest.benchmark	8	113431	69	25	33	47	70	159	7	750000
+ActorBangPerformanceTest.benchmark	10	117975	84	26	37	56	89	215	6	750000
+ActorBangPerformanceTest.benchmark	20	122861	161	29	55	109	203	416	6	750000
+ActorBangPerformanceTest.benchmark	30	121647	245	31	73	172	333	607	6	749700
+-----------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                          	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                  	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+ActorBangPerformanceTest.benchmark	1	13220	75	40	67	78	84	94	57	750000
+ActorBangPerformanceTest.benchmark	2	34743	56	26	36	47	61	88	22	750000
+ActorBangPerformanceTest.benchmark	4	80419	48	23	30	39	53	89	9	750000
+ActorBangPerformanceTest.benchmark	6	109688	54	24	30	39	54	100	7	749880
+ActorBangPerformanceTest.benchmark	8	113431	69	25	33	47	70	159	7	750000
+ActorBangPerformanceTest.benchmark	10	117975	84	26	37	56	89	215	6	750000
+ActorBangPerformanceTest.benchmark	20	122861	161	29	55	109	203	416	6	750000
+ActorBangPerformanceTest.benchmark	30	121647	245	31	73	172	333	607	6	749700
+ActorBangPerformanceTest.benchmark	40	124386	319	33	92	235	451	788	6	750000
+-----------------------------------------------------------------------------------------------------------------------------
+......
+Time: 134.425
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true org.samples.trading.akkabang.AkkaBangPerformanceTest
+JUnit version 4.6
+.21:17:31,629 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:17:31,629 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+21:17:31,629 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:17:31,630 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+21:17:31,630 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:17:31,630 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/lib/akka-sample-trading-1.0-20111115-SNAPSHOT.jar!/logback.xml]
+21:17:31,687 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:17:31,692 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:17:31,696 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+21:17:31,711 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:17:31,711 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:17:31,750 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:17:31,752 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [R]
+21:17:31,756 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:17:31,756 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:17:31,759 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+21:17:31,764 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+21:17:31,766 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern ./logs/akka.log.%d{yyyy-MM-dd-HH} for the active file
+21:17:31,770 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern './logs/akka.log.%d{yyyy-MM-dd-HH}'.
+21:17:31,770 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+21:17:31,773 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Mon Nov 15 21:15:06 CET 2010
+21:17:31,774 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - Active log file name: ./logs/akka.log
+21:17:31,774 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - File property is set to [./logs/akka.log]
+21:17:31,775 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [se.scalablesolutions] to DEBUG
+21:17:31,775 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [se.scalablesolutions] to true
+21:17:31,775 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+21:17:31,775 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [R] to Logger[ROOT]
+
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+-----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+AkkaBangPerformanceTest.benchmark	6	139713	42	19	27	33	40	112	5	749880
+------------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+AkkaBangPerformanceTest.benchmark	6	139713	42	19	27	33	40	112	5	749880
+AkkaBangPerformanceTest.benchmark	8	166361	47	22	31	39	48	85	5	750000
+-----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+AkkaBangPerformanceTest.benchmark	6	139713	42	19	27	33	40	112	5	749880
+AkkaBangPerformanceTest.benchmark	8	166361	47	22	31	39	48	85	5	750000
+AkkaBangPerformanceTest.benchmark	10	178697	55	26	37	48	60	85	4	750000
+------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+AkkaBangPerformanceTest.benchmark	6	139713	42	19	27	33	40	112	5	749880
+AkkaBangPerformanceTest.benchmark	8	166361	47	22	31	39	48	85	5	750000
+AkkaBangPerformanceTest.benchmark	10	178697	55	26	37	48	60	85	4	750000
+AkkaBangPerformanceTest.benchmark	20	213498	92	36	58	85	112	143	4	750000
+--------------------------------------------------------------------------------------------------------------------------
+.============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+----------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+AkkaBangPerformanceTest.benchmark	6	139713	42	19	27	33	40	112	5	749880
+AkkaBangPerformanceTest.benchmark	8	166361	47	22	31	39	48	85	5	750000
+AkkaBangPerformanceTest.benchmark	10	178697	55	26	37	48	60	85	4	750000
+AkkaBangPerformanceTest.benchmark	20	213498	92	36	58	85	112	143	4	750000
+AkkaBangPerformanceTest.benchmark	30	233343	126	45	75	111	157	218	3	749700
+----------------------------------------------------------------------------------------------------------------------------
+.=============================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------------
+AkkaBangPerformanceTest.benchmark	1	36552	27	16	20	23	27	50	21	750000
+AkkaBangPerformanceTest.benchmark	2	48119	41	14	21	27	36	122	16	750000
+AkkaBangPerformanceTest.benchmark	4	102687	38	15	22	27	34	123	7	750000
+AkkaBangPerformanceTest.benchmark	6	139713	42	19	27	33	40	112	5	749880
+AkkaBangPerformanceTest.benchmark	8	166361	47	22	31	39	48	85	5	750000
+AkkaBangPerformanceTest.benchmark	10	178697	55	26	37	48	60	85	4	750000
+AkkaBangPerformanceTest.benchmark	20	213498	92	36	58	85	112	143	4	750000
+AkkaBangPerformanceTest.benchmark	30	233343	126	45	75	111	157	218	3	749700
+AkkaBangPerformanceTest.benchmark	40	232417	169	57	100	148	210	308	3	750000
+-----------------------------------------------------------------------------------------------------------------------------
+......
+Time: 74.442
+
+OK (16 tests)
+
+Running  -server -Xms512m -Xmx1024m -XX:+UseConcMarkSweepGC -DuseTxLogFile=false -Dbenchmark=true -DminClients=1 -DmaxClients=40 -DuseDummyOrderbook=true org.samples.trading.akkahawt.AkkaHawtPerformanceTest
+JUnit version 4.6
+.21:18:46,307 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+21:18:46,308 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+21:18:46,308 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:18:46,308 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+21:18:46,308 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/conf/logback.xml]
+21:18:46,308 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [jar:file:/home/patrik/akka-benchmark/akka-sample-trading-1.0-20111115-SNAPSHOT/lib/akka-sample-trading-1.0-20111115-SNAPSHOT.jar!/logback.xml]
+21:18:46,367 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+21:18:46,373 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+21:18:46,376 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [stdout]
+21:18:46,392 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:18:46,392 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:18:46,432 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+21:18:46,434 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [R]
+21:18:46,437 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+21:18:46,437 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [encoder] on top of the object stack.
+21:18:46,441 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Pushing component [rollingPolicy] on top of the object stack.
+21:18:46,446 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - No compression will be used
+21:18:46,447 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy - Will use the pattern ./logs/akka.log.%d{yyyy-MM-dd-HH} for the active file
+21:18:46,452 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd-HH' from file name pattern './logs/akka.log.%d{yyyy-MM-dd-HH}'.
+21:18:46,452 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at the top of every hour.
+21:18:46,455 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to Mon Nov 15 21:18:41 CET 2010
+21:18:46,456 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - Active log file name: ./logs/akka.log
+21:18:46,456 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[R] - File property is set to [./logs/akka.log]
+21:18:46,457 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [se.scalablesolutions] to DEBUG
+21:18:46,457 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [se.scalablesolutions] to true
+21:18:46,457 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+21:18:46,457 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [R] to Logger[ROOT]
+
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+AkkaHawtPerformanceTest.benchmark	6	172500	34	21	27	32	37	48	4	749880
+-----------------------------------------------------------------------------------------------------------------------
+.=======================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-----------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+AkkaHawtPerformanceTest.benchmark	6	172500	34	21	27	32	37	48	4	749880
+AkkaHawtPerformanceTest.benchmark	8	211661	37	21	28	34	41	54	4	750000
+-----------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+AkkaHawtPerformanceTest.benchmark	6	172500	34	21	27	32	37	48	4	749880
+AkkaHawtPerformanceTest.benchmark	8	211661	37	21	28	34	41	54	4	750000
+AkkaHawtPerformanceTest.benchmark	10	253806	39	22	29	35	43	58	3	750000
+------------------------------------------------------------------------------------------------------------------------
+.========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+AkkaHawtPerformanceTest.benchmark	6	172500	34	21	27	32	37	48	4	749880
+AkkaHawtPerformanceTest.benchmark	8	211661	37	21	28	34	41	54	4	750000
+AkkaHawtPerformanceTest.benchmark	10	253806	39	22	29	35	43	58	3	750000
+AkkaHawtPerformanceTest.benchmark	20	322371	60	28	40	50	64	95	2	750000
+------------------------------------------------------------------------------------------------------------------------
+.=========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+-------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+AkkaHawtPerformanceTest.benchmark	6	172500	34	21	27	32	37	48	4	749880
+AkkaHawtPerformanceTest.benchmark	8	211661	37	21	28	34	41	54	4	750000
+AkkaHawtPerformanceTest.benchmark	10	253806	39	22	29	35	43	58	3	750000
+AkkaHawtPerformanceTest.benchmark	20	322371	60	28	40	50	64	95	2	750000
+AkkaHawtPerformanceTest.benchmark	30	400422	72	30	44	57	76	118	2	749700
+-------------------------------------------------------------------------------------------------------------------------
+.==========================================================================================================================
+Scenario                         	clients	TPS	mean	5%  	25% 	50% 	75% 	95% 	Durat.	N
+                                 	       	   	(us)	(us)	(us)	(us)	(us)	(us)	(s)   	 
+--------------------------------------------------------------------------------------------------------------------------
+AkkaHawtPerformanceTest.benchmark	1	32847	30	22	26	29	33	36	23	750000
+AkkaHawtPerformanceTest.benchmark	2	63814	31	22	28	30	32	37	12	750000
+AkkaHawtPerformanceTest.benchmark	4	116079	34	22	28	33	36	44	6	750000
+AkkaHawtPerformanceTest.benchmark	6	172500	34	21	27	32	37	48	4	749880
+AkkaHawtPerformanceTest.benchmark	8	211661	37	21	28	34	41	54	4	750000
+AkkaHawtPerformanceTest.benchmark	10	253806	39	22	29	35	43	58	3	750000
+AkkaHawtPerformanceTest.benchmark	20	322371	60	28	40	50	64	95	2	750000
+AkkaHawtPerformanceTest.benchmark	30	400422	72	30	44	57	76	118	2	749700
+AkkaHawtPerformanceTest.benchmark	40	401295	94	32	51	72	105	174	2	750000
+--------------------------------------------------------------------------------------------------------------------------
+......
+Time: 64.855
+
+OK (16 tests)
+

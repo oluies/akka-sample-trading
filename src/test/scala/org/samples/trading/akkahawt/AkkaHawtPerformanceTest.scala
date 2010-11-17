@@ -11,8 +11,8 @@ import org.samples.trading.akkabang._
 import org.samples.trading.domain._
 import org.samples.trading.common._
 
-import se.scalablesolutions.akka.actor.ActorRef
-import se.scalablesolutions.akka.actor.Actor.actorOf
+import akka.actor.ActorRef
+import akka.actor.Actor.actorOf
 
 class AkkaHawtPerformanceTest extends AkkaBangPerformanceTest {
 

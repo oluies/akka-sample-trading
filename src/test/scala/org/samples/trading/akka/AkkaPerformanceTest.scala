@@ -9,20 +9,20 @@ import java.util.concurrent.TimeUnit
 import org.samples.trading.domain._
 import org.samples.trading.common._
 
-import se.scalablesolutions.akka.actor.ActorRef
-import se.scalablesolutions.akka.actor.Actor
-import se.scalablesolutions.akka.actor.Actor.actorOf
-import se.scalablesolutions.akka.dispatch.Dispatchers
+import akka.actor.ActorRef
+import akka.actor.Actor
+import akka.actor.Actor.actorOf
+import akka.dispatch.Dispatchers
 
 class AkkaPerformanceTest extends BenchmarkScenarios // with OtherPerformanceScenarios 
 {
   type TS = AkkaTradingSystem
   
   val clientDispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("client-dispatcher")
-  clientDispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity  
+   .withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity
    .setCorePoolSize(maxClients)
    .setMaxPoolSize(maxClients)
-   .buildThreadPool
+   .build
 
   override def createTradingSystem: TS = new AkkaTradingSystem
 

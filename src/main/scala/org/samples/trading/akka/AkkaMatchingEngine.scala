@@ -1,13 +1,15 @@
 package org.samples.trading.akka
 
-import se.scalablesolutions.akka.actor._
-import se.scalablesolutions.akka.dispatch.Future
-import se.scalablesolutions.akka.dispatch.FutureTimeoutException
-import se.scalablesolutions.akka.dispatch.MessageDispatcher
+import akka.actor._
+import akka.dispatch.Future
+import akka.dispatch.FutureTimeoutException
+import akka.dispatch.MessageDispatcher
 
 import org.samples.trading.common.MatchingEngine
 import org.samples.trading.domain._
 import org.samples.trading.domain.SupportedOrderbooksReq
+import akka.dispatch.MessageDispatcher
+import akka.actor.ActorRef
 
 
 class AkkaMatchingEngine(val meId: String, val orderbooks: List[Orderbook], disp: Option[MessageDispatcher]) extends Actor with MatchingEngine {

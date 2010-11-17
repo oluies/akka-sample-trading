@@ -1,9 +1,9 @@
 package org.samples.trading.akkahawt
 
 import org.samples.trading.akkabang._
-import se.scalablesolutions.akka.dispatch.Dispatchers
-import se.scalablesolutions.akka.dispatch.HawtDispatcher
-import se.scalablesolutions.akka.dispatch.MessageDispatcher
+import akka.dispatch.Dispatchers
+import akka.dispatch.HawtDispatcher
+import akka.dispatch.MessageDispatcher
 
 class AkkaHawtTradingSystem extends AkkaBangTradingSystem {
 
@@ -12,10 +12,10 @@ class AkkaHawtTradingSystem extends AkkaBangTradingSystem {
   override
   def createOrderReceiverDispatcher: Option[MessageDispatcher] = {
     val dispatcher = Dispatchers.newExecutorBasedEventDrivenDispatcher("or-dispatcher")
-    dispatcher.withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity
+      .withNewThreadPoolWithLinkedBlockingQueueWithUnboundedCapacity
       .setCorePoolSize(1)
       .setMaxPoolSize(1)
-      .buildThreadPool
+      .build;
     Option(dispatcher)
   }
 
@@ -23,7 +23,8 @@ class AkkaHawtTradingSystem extends AkkaBangTradingSystem {
   def createMatchingEngineDispatcher: Option[MessageDispatcher] = Option(hawtDispatcher)
 
   override def start {
-    super.start()
+    super.start
+
 
     for ((p, s) <- matchingEngines) {
       //      HawtDispatcher.pin(p)

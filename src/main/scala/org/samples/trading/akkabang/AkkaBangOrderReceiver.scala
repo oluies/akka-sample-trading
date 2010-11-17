@@ -1,7 +1,7 @@
 package org.samples.trading.akkabang
 
-import se.scalablesolutions.akka.actor._
-import se.scalablesolutions.akka.dispatch.MessageDispatcher
+import akka.actor._
+import akka.dispatch.MessageDispatcher
 
 import org.samples.trading.akka._
 import org.samples.trading.domain._
