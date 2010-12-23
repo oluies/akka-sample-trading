@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>1.0-20111115-SNAPSHOT</version>
+	<version>1.0-RC1</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<scala.version>2.8.0</scala.version>
-		<akka.version>1.0-SNAPSHOT</akka.version>
+		<scala.version>2.8.1</scala.version>
+		<akka.version>1.0-RC2</akka.version>
 	</properties>
 	<build>
 		<plugins>
@@ -151,7 +151,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.6</version>
+			<version>4.8.2</version>
 			<!-- <scope>test</scope>  -->
 		</dependency>
 		<dependency>
@@ -167,25 +167,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<artifactId>akka-actor_2.8.0</artifactId>
+			<artifactId>akka-actor</artifactId>
 		    <groupId>se.scalablesolutions.akka</groupId>
 		    <version>${akka.version}</version>
     	</dependency>
-    	<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 	</dependencies>
 
 	<repositories>
