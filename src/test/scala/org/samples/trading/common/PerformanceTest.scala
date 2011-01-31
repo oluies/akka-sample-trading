@@ -82,7 +82,7 @@ trait PerformanceTest {
     isWarm = true
   }
 
-  def logMeasurement(scenario: String, numberOfClients: Int, durationNs: Long, repeat: Int, totalNumberOfRequests: Int) {
+  def logMeasurement(scenario: String, numberOfClients: Int, durationNs: Long) {
     val durationUs = durationNs / 1000
     val durationMs = durationNs / 1000000
     val durationS = durationNs.toDouble / 1000000000.0

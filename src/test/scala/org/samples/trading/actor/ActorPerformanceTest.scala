@@ -35,12 +35,14 @@ class ActorPerformanceTest extends BenchmarkScenarios // with OtherPerformanceSc
   def dummy {}
 
   override def runScenario(scenario: String, orders: List[Order], repeat: Int, numberOfClients: Int, delayMs: Int) = {
-    val totalNumberOfRequests = orders.size * repeat * numberOfClients
+    val totalNumberOfRequests = orders.size * repeat
+    val repeatsPerClient = repeat / numberOfClients
+    val oddRepeats = repeat - (repeatsPerClient * numberOfClients)
     val latch = new CountDownLatch(numberOfClients)
     val receivers = tradingSystem.orderReceivers.toIndexedSeq
     val clients = (for (i <- 0 until numberOfClients) yield {
       val receiver = receivers(i % receivers.size)
-      new Client(receiver, orders, latch, repeat, delayMs)
+      new Client(receiver, orders, latch, repeatsPerClient + (if (i < oddRepeats) 1 else 0), delayMs)
     }).toList
 
     val start = System.nanoTime
@@ -50,8 +52,8 @@ class ActorPerformanceTest extends BenchmarkScenarios // with OtherPerformanceSc
 
     assertTrue(ok)
     Thread.sleep(1000)
-    assertEquals(numberOfClients * (orders.size / 2) * repeat, TotalTradeCounter.counter.get)
-    logMeasurement(scenario, numberOfClients, durationNs, repeat, totalNumberOfRequests)
+    assertEquals((orders.size / 2) * repeat, TotalTradeCounter.counter.get)
+    logMeasurement(scenario, numberOfClients, durationNs)
   }
 
   class Client(orderReceiver: ActorOrderReceiver, orders: List[Order], latch: CountDownLatch, repeat: Int, delayMs: Int) extends Actor {
