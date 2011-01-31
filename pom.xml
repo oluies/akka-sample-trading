@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.samples</groupId>
 	<artifactId>akka-sample-trading</artifactId>
-	<version>1.0-RC1</version>
+	<version>1.0-RC6</version>
 	<name>Scala Akka Trading Sample</name>
 	<packaging>jar</packaging>
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<scala.version>2.8.1</scala.version>
-		<akka.version>1.0-RC2</akka.version>
+		<akka.version>1.0-RC6</akka.version>
 	</properties>
 	<build>
 		<plugins>
@@ -182,7 +182,7 @@
 		<repository>
 		  <id>Akka</id>
 		  <name>Akka Maven2 Repository</name>
-		  <url>http://www.scalablesolutions.se/akka/repository/</url>
+		  <url>http://akka.io/repository/</url>
 		</repository>
 		 
 		<repository>
