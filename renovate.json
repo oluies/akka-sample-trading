@@ -2,5 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "org.scala-tools.testing:specs is the pre-Scala-2.9 publication, where the Scala binary version is baked into the version string (1.6.2.2_1.5.0) instead of a _2.x suffix. Renovate reads that as a semver segment, so the comparison is meaningless for this Scala 2.8-era pom. See closed PR #4.",
+      "matchPackageNames": ["org.scala-tools.testing:specs"],
+      "enabled": false
+    }
   ]
 }
