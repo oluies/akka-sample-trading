@@ -1,11 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "enabled": false,
+  "description": [
+    "Renovate is disabled for this repository. It is a 2010 Akka 0.x sample on Scala 2.8 with no CI, so nothing here can be built or validated against current toolchains and the plugin and library versions it pins are part of the historical record.",
+    "The packageRules below are kept as a record of why specific updates were rejected, so they still apply if this is ever re-enabled. See closed PR #4."
   ],
   "packageRules": [
     {
-      "description": "org.scala-tools.testing:specs is the pre-Scala-2.9 publication, where the Scala binary version is baked into the version string (1.6.2.2_1.5.0) instead of a _2.x suffix. Renovate reads that as a semver segment, so the comparison is meaningless for this Scala 2.8-era pom. See closed PR #4.",
+      "description": "org.scala-tools.testing:specs is the pre-Scala-2.9 publication, where the Scala binary version is baked into the version string (1.6.2.2_1.5.0) instead of a _2.x suffix. Renovate reads that as a semver segment, so the comparison is meaningless.",
       "matchPackageNames": ["org.scala-tools.testing:specs"],
       "enabled": false
     }
